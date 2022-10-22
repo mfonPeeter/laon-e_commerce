@@ -1,5 +1,7 @@
+import Slider from "./components/Slider/Slider";
+
 function App() {
-  return <div></div>;
+  return <Slider />;
 }
 
 export default App;
