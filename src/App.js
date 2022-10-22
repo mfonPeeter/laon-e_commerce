@@ -1,7 +1,7 @@
-import Slider from "./components/Slider/Slider";
+import HomePage from './pages/HomePage';
 
 function App() {
-  return <Slider />;
+  return <HomePage />;
 }
 
 export default App;

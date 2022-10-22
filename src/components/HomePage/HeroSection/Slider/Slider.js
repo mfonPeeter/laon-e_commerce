@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import logo1 from '../../assets/banners/img1.jpg';
-import logo2 from '../../assets/banners/img2.jpg';
-import logo3 from '../../assets/banners/img3.jpg';
-import logo4 from '../../assets/banners/img4.jpg';
-import logo5 from '../../assets/banners/img5.jpg';
-import logo6 from '../../assets/banners/img6.jpg';
+import logo1 from '../../../../assets/banners/img1.jpg';
+import logo2 from '../../../../assets/banners/img2.jpg';
+import logo3 from '../../../../assets/banners/img3.jpg';
+import logo4 from '../../../../assets/banners/img4.jpg';
+import logo5 from '../../../../assets/banners/img5.jpg';
+import logo6 from '../../../../assets/banners/img6.jpg';
 import BtnSlider from './BtnSlider';
 
 const data = [
