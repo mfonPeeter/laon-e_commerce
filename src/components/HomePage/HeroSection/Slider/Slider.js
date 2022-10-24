@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-import logo1 from '../../../../assets/banners/img1.jpg';
-import logo2 from '../../../../assets/banners/img2.jpg';
-import logo3 from '../../../../assets/banners/img3.jpg';
-import logo4 from '../../../../assets/banners/img4.jpg';
-import logo5 from '../../../../assets/banners/img5.jpg';
-import logo6 from '../../../../assets/banners/img6.jpg';
+import img1 from '../../../../assets/banners/img1.jpg';
+import img2 from '../../../../assets/banners/img2.jpg';
+import img3 from '../../../../assets/banners/img3.jpg';
+import img4 from '../../../../assets/banners/img4.jpg';
+import img5 from '../../../../assets/banners/img5.jpg';
+import img6 from '../../../../assets/banners/img6.jpg';
 import BtnSlider from './BtnSlider';
 
 const data = [
-  { id: 1, logo: logo1 },
-  { id: 2, logo: logo2 },
-  { id: 3, logo: logo3 },
-  { id: 4, logo: logo4 },
-  { id: 5, logo: logo5 },
-  { id: 6, logo: logo6 },
+  { id: 1, img: img1 },
+  { id: 2, img: img2 },
+  { id: 3, img: img3 },
+  { id: 4, img: img4 },
+  { id: 5, img: img5 },
+  { id: 6, img: img6 },
 ];
 
 const Slider = () => {
@@ -44,6 +44,8 @@ const Slider = () => {
 
   const moveDot = index => {
     setSlideIndex(index);
+
+    clearTimeout(slideTimeout);
   };
 
   return (
@@ -56,7 +58,7 @@ const Slider = () => {
           } `}
         >
           <img
-            src={obj.logo}
+            src={obj.img}
             alt="Banners"
             className="w-full h-[90vh] object-cover"
           />
@@ -80,4 +82,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default React.memo(Slider);
