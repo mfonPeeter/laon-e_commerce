@@ -3,49 +3,7 @@ import { useState } from 'react';
 import NavigationList from './NavigationList';
 import NavigationSummary from './NavigationSummary';
 import CartIcon from './NavigationIcons/CartIcon';
-
-// Xiaomi phones
-import img1 from '../../../assets/nav-products/xiaomi-phones/Xiaomi-12-Pro.png';
-import img2 from '../../../assets/nav-products/xiaomi-phones/MI-10-T.png';
-import img3 from '../../../assets/nav-products/xiaomi-phones/MI-10-Lite.png';
-import img4 from '../../../assets/nav-products/xiaomi-phones/MI-Note-10-Pro.png';
-
-// Redmi Phones
-import img5 from '../../../assets/nav-products/redmi-phones/Redmi-Note-11-Pro+5G.png';
-import img6 from '../../../assets/nav-products/redmi-phones/Redmi-Note-11-Pro.png';
-import img7 from '../../../assets/nav-products/redmi-phones/Redmi-Note-11S.png';
-import img8 from '../../../assets/nav-products/redmi-phones/Redmi-Note-11.png';
-import img9 from '../../../assets/nav-products/redmi-phones/Redmi-10.png';
-
-// Smart Device
-import img10 from '../../../assets/nav-products/smart-device/Redmi-Watch-2-Lite.png';
-import img11 from '../../../assets/nav-products/smart-device/Redmi-Buds-3-Pro.png';
-import img12 from '../../../assets/nav-products/smart-device/Redmi-Buds-3.png';
-import img13 from '../../../assets/nav-products/smart-device/Mi-Watch.png';
-import img14 from '../../../assets/nav-products/smart-device/Mi-Smart-Band-5.png';
-
-const xiaomiData = [
-  { id: 1, img: img1, title: 'Xiaomi 12 Pro' },
-  { id: 2, img: img2, title: 'Mi 10T' },
-  { id: 3, img: img3, title: 'Mi 10 Lite' },
-  { id: 4, img: img4, title: 'Mi Note 10 Pro' },
-];
-
-const redmiData = [
-  { id: 1, img: img5, title: 'Redmi Note 11 Pro+ 5g' },
-  { id: 2, img: img6, title: 'Remdi Note 11 Pro' },
-  { id: 3, img: img7, title: 'Redmi Note 11S' },
-  { id: 4, img: img8, title: 'Redmi Note 11' },
-  { id: 5, img: img9, title: 'Redmi 10' },
-];
-
-const smartDeviceData = [
-  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
-  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
-  { id: 3, img: img12, title: 'Redmi Buds 3' },
-  { id: 4, img: img13, title: 'Mi Watch' },
-  { id: 5, img: img14, title: 'Mi Smart Band 5' },
-];
+import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 
 const Navigation = () => {
   const [showXiaomiNavSum, setShowXiaomiNavSum] = useState(false);
@@ -53,7 +11,7 @@ const Navigation = () => {
   const [showSmartDeviceNavSum, setShowSmartDeviceNavSum] = useState(false);
 
   const openXiaomiNavSumHandler = () => {
-    setShowXiaomiNavSum(true);
+    setShowXiaomiNavSum(prevVal => !prevVal);
     setShowRedmiNavSum(false);
     setShowSmartDeviceNavSum(false);
   };
@@ -63,7 +21,7 @@ const Navigation = () => {
   };
 
   const openRedmiNavSumHandler = () => {
-    setShowRedmiNavSum(true);
+    setShowRedmiNavSum(prevVal => !prevVal);
     setShowXiaomiNavSum(false);
     setShowSmartDeviceNavSum(false);
   };
@@ -73,7 +31,7 @@ const Navigation = () => {
   };
 
   const openSmartDeviceSumHandler = () => {
-    setShowSmartDeviceNavSum(true);
+    setShowSmartDeviceNavSum(prevVal => !prevVal);
     setShowXiaomiNavSum(false);
     setShowRedmiNavSum(false);
   };
