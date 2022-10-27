@@ -7,11 +7,6 @@
   @apply inline-block px-4 py-2 text-white font-bold rounded bg-blue-700 transition-colors hover:bg-blue-800 sm:text-lg;
 }
 
-/* Navigation */
-.navigation-list {
-  @apply cursor-default transition-colors hover:text-blue-700;
-}
-
 /* Hamburger Menu */
 .hamburger {
   cursor: pointer;
