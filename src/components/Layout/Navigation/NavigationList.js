@@ -1,4 +1,4 @@
-const NavigationList = ({ text, onOpenNavSum, onCloseNavSum }) => {
+const NavigationList = ({ text, onOpenNavSum }) => {
   return (
     <li
       className="cursor-default transition-colors hover:text-blue-700"

@@ -30,13 +30,13 @@ const Navigation = () => {
     setShowRedmiNavSum(false);
   };
 
-  const openSmartDeviceSumHandler = () => {
+  const openSmartDeviceNavSumHandler = () => {
     setShowSmartDeviceNavSum(prevVal => !prevVal);
     setShowXiaomiNavSum(false);
     setShowRedmiNavSum(false);
   };
 
-  const closeSmartDeviceSumHandler = () => {
+  const closeSmartDeviceNavSumHandler = () => {
     setShowSmartDeviceNavSum(false);
   };
 
@@ -71,8 +71,8 @@ const Navigation = () => {
             />
             <NavigationList
               text="Smart Device"
-              onOpenNavSum={openSmartDeviceSumHandler}
-              onCloseNavSum={closeSmartDeviceSumHandler}
+              onOpenNavSum={openSmartDeviceNavSumHandler}
+              onCloseNavSum={closeSmartDeviceNavSumHandler}
             />
           </ul>
           <a href="#" className="products-link">
@@ -110,7 +110,7 @@ const Navigation = () => {
         <NavigationSummary
           data={smartDeviceData}
           showNavSum={showSmartDeviceNavSum}
-          onCloseNavSum={closeSmartDeviceSumHandler}
+          onCloseNavSum={closeSmartDeviceNavSumHandler}
         />
       )}
     </div>
