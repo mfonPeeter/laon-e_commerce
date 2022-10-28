@@ -32,7 +32,7 @@ const HeroSection = () => {
   };
 
   return (
-    <header className="flex flex-col space-y-10 items-center px-10 pt-10 pb-[500px] text-center font-lora bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] sm:pb-[700px] md:flex-row md:space-y-0 md:space-x-10 md:h-[90vh] md:pb-10 md:pt-0 xl:px-20">
+    <header className="flex flex-col space-y-10 items-center mb-4 px-10 pt-10 pb-20 text-center font-lora bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] md:flex-row md:space-y-0 md:space-x-10 md:h-[90vh] md:pb-10 md:pt-0 xl:px-20">
       <div className="md:w-1/2 md:text-left">
         <h1 className="mb-3 max-w-xl mx-auto text-4xl font-raleway font-bold lg:text-5xl lg:mx-0">
           Get <span className="text-blue-700">MI</span> phones at amazing prices
@@ -41,7 +41,7 @@ const HeroSection = () => {
         <p className="mb-6 max-w-sm mx-auto font-raleway font-semibold md:mx-0">
           Discounts are given every last week of the month. Don't miss out!
         </p>
-        <a href="#" className="products-link">
+        <a href="all-products" className="products-link">
           All Products &rarr;
         </a>
       </div>
