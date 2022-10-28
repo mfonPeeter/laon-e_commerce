@@ -1,8 +1,8 @@
 import React from 'react';
 
-import img1 from '../../../assets/home-page/small-banners/redmi-note-10-small-banner.jpg';
-import img2 from '../../../assets/home-page/small-banners/mi-10t-small-banner.jpg';
-import img3 from '../../../assets/home-page/small-banners/redmi-note-9pro-small-banner.jpg';
+import img1 from '../../assets/home-page/small-banners/redmi-note-10-small-banner.jpg';
+import img2 from '../../assets/home-page/small-banners/mi-10t-small-banner.jpg';
+import img3 from '../../assets/home-page/small-banners/redmi-note-9pro-small-banner.jpg';
 
 const imgData = [
   { id: 1, img: img1, link: 'redmi-note-10' },

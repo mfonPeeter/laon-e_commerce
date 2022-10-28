@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
-import HeroSection from '../components/HomePage/HeroSection/HeroSection';
-import SmallBanner from '../components/HomePage/SmallBanner/SmallBanner';
+import HeroSection from '../components/HomePage/HeroSection';
+import SmallBanner from '../components/HomePage/SmallBanner';
 
 const HomePage = () => {
   return (
