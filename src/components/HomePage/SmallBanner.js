@@ -1,26 +1,37 @@
-import img1 from '../../assets/home-page/small-banners/redmi-note-10-small-banner.jpg';
-import img2 from '../../assets/home-page/small-banners/mi-10t-small-banner.jpg';
-import img3 from '../../assets/home-page/small-banners/redmi-note-9pro-small-banner.jpg';
-
-const imgData = [
-  { id: 1, img: img1, link: 'redmi-note-10' },
-  { id: 2, img: img2, link: 'mi-10t' },
-  { id: 3, img: img3, link: 'redmi-note-9pro' },
-];
+import img1 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-pro-5g-specs.png';
+import img2 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10-specs.png';
+import img3 from '../../assets/products-specs/redmi-phones-specs/redmi-note-9-pro-specs.png';
 
 const SmallBanner = () => {
   return (
-    <section className="homepage-container grid gap-y-2 gap-x-4 mb-12 text-center sm:grid-cols-2 lg:grid-cols-3">
-      {imgData.map(obj => (
-        <div key={obj.id}>
-          <a
-            href={obj.link}
-            className="inline-block transition-all duration-[400ms] hover:shadow-xl"
-          >
-            <img src={obj.img} alt={obj.link} className="object-cover" />
-          </a>
+    <section className="homepage-container grid gap-y-3 mb-12 font-lora sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-3">
+      <a
+        href="redmi-note-11-pro-5g"
+        className="small-banner-link px-10 py-6 bg-slate-200"
+      >
+        <div>
+          <h3 className="small-banner-text">Redmi Note 11 Pro 5g</h3>
+          <img src={img1} alt="Redmi Note 11 Pro 5g" />
         </div>
-      ))}
+      </a>
+      <a
+        href="redmi-note-10"
+        className="small-banner-link px-10 py-6 bg-zinc-200"
+      >
+        <div>
+          <h3 className="small-banner-text">Redmi Note 10</h3>
+          <img src={img2} alt="Redmi Note 10" />
+        </div>
+      </a>
+      <a
+        href="redmi-note-9-pro"
+        className="small-banner-link px-10 py-6 bg-slate-200"
+      >
+        <div>
+          <h3 className="small-banner-text">Redmi Note 9 Pro</h3>
+          <img src={img3} alt="Redmi Note 9 Pro" />
+        </div>
+      </a>
     </section>
   );
 };

@@ -16,17 +16,20 @@ const StarProducts = () => {
         Star Products
       </h2>
 
-      <div className="grid gap-y-3 grid-flow-row auto-rows-fr sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-4 lg:gap-1 lg:auto-rows-auto">
+      <div className="grid gap-y-3 grid-flow-row auto-rows-fr font-lora sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-4 lg:gap-1 lg:auto-rows-auto">
         <a
           href="mi-watch"
-          className="star-products-link bg-zinc-200 lg:row-span-2 lg:col-span-2"
+          className="star-products-link p-4 bg-zinc-200 lg:row-span-2 lg:col-span-2"
         >
           <div>
             <h3 className="star-products-text">Mi Watch</h3>
             <img src={img1} alt="Mi Watch" />
           </div>
         </a>
-        <a href="redmi-buds-3-pro" className="star-products-link bg-slate-200 ">
+        <a
+          href="redmi-buds-3-pro"
+          className="star-products-link p-4 bg-slate-200 "
+        >
           <div>
             <h3 className="star-products-text">Redmi Buds 3 Pro</h3>
             <div className="flex justify-center">
@@ -37,7 +40,7 @@ const StarProducts = () => {
         </a>
         <a
           href="redmi-watch-2-lite"
-          className="star-products-link bg-slate-200 "
+          className="star-products-link p-4 bg-slate-200 "
         >
           <div>
             <h3 className="star-products-text">Redmi Watch 2 Lite</h3>
@@ -46,7 +49,7 @@ const StarProducts = () => {
         </a>
         <a
           href="mi-smart-band-5"
-          className="star-products-link bg-zinc-200 lg:col-span-2"
+          className="star-products-link p-4 bg-zinc-200 lg:col-span-2"
         >
           <div>
             <h3 className="star-products-text">Mi Smart Band 5</h3>
