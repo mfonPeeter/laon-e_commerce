@@ -34,16 +34,18 @@ const Videos = () => {
         Videos
       </h2>
 
-      <div className="flex space-x-4">
+      <div className="flex flex-col items-center space-y-2 sm:flex-row sm:space-x-4">
         <ProductVideo
           img={img1}
           showIframeModalHandler={showRedmiModalHandler}
-          title="Redmi Note 10 Series Challenge Your Boundaries"
+          title="Redmi Note 10"
+          extraTitle=" Series Challenge Your Boundaries"
         />
         <ProductVideo
           img={img2}
           showIframeModalHandler={showMiModalHandler}
-          title="MI 10T Pro | Official Unboxing"
+          title="MI 10T Pro"
+          extraTitle=" | Official Unboxing"
         />
         <ProductVideo
           img={img3}
