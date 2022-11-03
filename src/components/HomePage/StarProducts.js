@@ -1,8 +1,3 @@
-// import img1 from '../../assets/home-page/star-products/mi-watch.png';
-// import img2 from '../../assets/home-page/star-products/redmi-buds-3-pro.jpg';
-// import img3 from '../../assets/home-page/star-products/redmi-watch-2-lite.jpg';
-// import img4 from '../../assets/home-page/star-products/mi-smart-band-5.jpg';
-
 import img1 from '../../assets/products-specs/smart-devices-specs/mi-watch-specs.png';
 import img2 from '../../assets/products-specs/smart-devices-specs/redmi-buds-3-pro-dark-specs.png';
 import img5 from '../../assets/products-specs/smart-devices-specs/redmi-buds-3-pro-light-specs.png';
@@ -11,12 +6,12 @@ import img4 from '../../assets/products-specs/smart-devices-specs/mi-smart-band-
 
 const StarProducts = () => {
   return (
-    <section className="homepage-container mb-10">
-      <h2 className=" mb-6 text-gray-700 text-2xl text-center font-lora font-semibold uppercase md:text-3xl">
+    <section className="homepage-container mb-12 font-lora">
+      <h2 className="mb-6 text-gray-700 text-2xl text-center font-semibold uppercase md:text-3xl">
         Star Products
       </h2>
 
-      <div className="grid gap-y-3 grid-flow-row auto-rows-fr font-lora sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-4 lg:gap-1 lg:auto-rows-auto">
+      <div className="grid gap-y-3 grid-flow-row auto-rows-fr sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-4 lg:gap-1 lg:auto-rows-auto">
         <a
           href="mi-watch"
           className="star-products-link p-4 bg-zinc-200 lg:row-span-2 lg:col-span-2"
