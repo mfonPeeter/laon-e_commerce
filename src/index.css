@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.ficon:hover {
+  filter: invert(80%) sepia(37%) saturate(7048%) hue-rotate(132deg)
+    brightness(105%) contrast(104%);
+}
+
 /* Global Container */
 .homepage-container {
-  @apply container mx-auto max-w-screen-xl md:px-10 px-6;
+  @apply container mx-auto max-w-screen-xl px-6 md:px-10;
 }
 
 /* Links */
