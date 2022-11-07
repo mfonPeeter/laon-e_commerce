@@ -1,9 +1,9 @@
-import RightArrowIcon from './NavigationIcons/RightArrowIcon';
+import RightArrowIcon from '../NavigationIcons/RightArrowIcon';
 
-const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
+const MobileNavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
   return (
     <div
-      className={`hidden container px-20 w-full h-0 mx-auto max-w-screen-xl items-center space-x-14 shadow-md opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] lg:flex ${
+      className={`flex items-center space-x-2 py-2 px-2 h-0 shadow-md opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] ${
         showNavSum ? 'opacity-100 h-[30vh]' : ''
       }`}
       onMouseLeave={onCloseNavSum}
@@ -11,7 +11,7 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
       {data.map(obj => (
         <div key={obj.id}>
           <img src={obj.img} alt={obj.title} />
-          <p className="text-center">{obj.title}</p>
+          <p className="text-base text-center">{obj.title}</p>
         </div>
       ))}
       <a
@@ -26,4 +26,4 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
   );
 };
 
-export default NavigationSummary;
+export default MobileNavigationSummary;

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import NavigationList from './NavigationList';
 import NavigationSummary from './NavigationSummary';
 import CartIcon from './NavigationIcons/CartIcon';
+import MobileNavigation from './MobileNavigation/MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 
 const Navigation = () => {
@@ -62,25 +63,22 @@ const Navigation = () => {
             <NavigationList
               text="Xiaomi Phones"
               onOpenNavSum={openXiaomiNavSumHandler}
-              onCloseNavSum={closeXiaomiNavSumHandler}
             />
             <NavigationList
               text="Redmi Phones"
               onOpenNavSum={openRedmiNavSumHandler}
-              onCloseNavSum={closeRedmiNavSumHandler}
             />
             <NavigationList
               text="Smart Device"
               onOpenNavSum={openSmartDeviceNavSumHandler}
-              onCloseNavSum={closeSmartDeviceNavSumHandler}
             />
           </ul>
-          <a href="#" className="products-link">
+          <a href="products-link" className="products-link">
             All Products
           </a>
 
           <a
-            href="#"
+            href="cart"
             className="relative flex items-center w-16 h-16 transition-colors hover:text-blue-700"
           >
             <CartIcon />
@@ -113,6 +111,8 @@ const Navigation = () => {
           onCloseNavSum={closeSmartDeviceNavSumHandler}
         />
       )}
+
+      <MobileNavigation />
     </div>
   );
 };

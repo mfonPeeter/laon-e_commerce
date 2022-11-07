@@ -18,6 +18,7 @@ import img12 from '../../../assets/nav-products/smart-device/redmi-buds-3.png';
 import img13 from '../../../assets/nav-products/smart-device/mi-watch.png';
 import img14 from '../../../assets/nav-products/smart-device/mi-smart-band-5.png';
 
+// Desktop View
 export const xiaomiData = [
   { id: 1, img: img1, title: 'Xiaomi 12 Pro' },
   { id: 2, img: img2, title: 'Mi 10T' },
@@ -39,4 +40,35 @@ export const smartDeviceData = [
   { id: 3, img: img12, title: 'Redmi Buds 3' },
   { id: 4, img: img13, title: 'Mi Watch' },
   { id: 5, img: img14, title: 'Mi Smart Band 5' },
+];
+
+// Mobile View
+export const mobileXiaomiData = [
+  { id: 1, img: img1, title: 'Xiaomi 12 Pro' },
+  { id: 2, img: img2, title: 'Mi 10T' },
+];
+
+export const mobileRedmiData = [
+  { id: 1, img: img3, title: 'Redmi Note 11 Pro+ 5g' },
+  { id: 2, img: img4, title: 'Remdi Note 11 Pro' },
+];
+
+export const mobileSmartDeviceData = [
+  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
+  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
+];
+
+// Tablet View
+export const tabletRedmiData = [
+  { id: 1, img: img5, title: 'Redmi Note 11 Pro+ 5g' },
+  { id: 2, img: img6, title: 'Remdi Note 11 Pro' },
+  { id: 3, img: img7, title: 'Redmi Note 11S' },
+  { id: 4, img: img8, title: 'Redmi Note 11' },
+];
+
+export const tabletSmartDeviceData = [
+  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
+  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
+  { id: 3, img: img12, title: 'Redmi Buds 3' },
+  { id: 4, img: img13, title: 'Mi Watch' },
 ];
