@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import useNavigation from '../../../hooks/use-navigation';
 
-import NavCloseIcon from '../NavigationIcons/NavCloseIcon';
+import NavCloseIcon from './NavigationIcons/NavCloseIcon';
 
-import MobileNavigationSummary from './MobileNavigationSummary';
-import MobileNavigationList from './MobileNavigationList';
+import NavigationList from './NavigationList';
+import NavigationSummary from './NavigationSummary';
 import {
   mobileRedmiData,
   mobileXiaomiData,
@@ -11,7 +12,7 @@ import {
   tabletRedmiData,
   tabletSmartDeviceData,
   xiaomiData,
-} from '../NavigationImgData';
+} from './NavigationImgData';
 
 const getWindowSize = () => {
   return window.innerWidth;
@@ -19,45 +20,23 @@ const getWindowSize = () => {
 
 const MobileNavigation = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize);
-  const [showXiaomiNavSum, setShowXiaomiNavSum] = useState(false);
-  const [showRedmiNavSum, setShowRedmiNavSum] = useState(false);
-  const [showSmartDeviceNavSum, setShowSmartDeviceNavSum] = useState(false);
+  const {
+    showXiaomiNavSum,
+    showRedmiNavSum,
+    showSmartDeviceNavSum,
+    openXiaomiNavSumHandler,
+    closeXiaomiNavSumHandler,
+    openRedmiNavSumHandler,
+    closeRedmiNavSumHandler,
+    openSmartDeviceNavSumHandler,
+    closeSmartDeviceNavSumHandler,
+  } = useNavigation();
 
   const windowResizeHandler = () => {
     setWindowSize(getWindowSize);
   };
 
   window.addEventListener('resize', windowResizeHandler);
-
-  const openXiaomiNavSumHandler = () => {
-    setShowXiaomiNavSum(prevVal => !prevVal);
-    setShowRedmiNavSum(false);
-    setShowSmartDeviceNavSum(false);
-  };
-
-  const closeXiaomiNavSumHandler = () => {
-    setShowXiaomiNavSum(false);
-  };
-
-  const openRedmiNavSumHandler = () => {
-    setShowRedmiNavSum(prevVal => !prevVal);
-    setShowXiaomiNavSum(false);
-    setShowSmartDeviceNavSum(false);
-  };
-
-  const closeRedmiNavSumHandler = () => {
-    setShowRedmiNavSum(false);
-  };
-
-  const openSmartDeviceNavSumHandler = () => {
-    setShowSmartDeviceNavSum(prevVal => !prevVal);
-    setShowXiaomiNavSum(false);
-    setShowRedmiNavSum(false);
-  };
-
-  const closeSmartDeviceNavSumHandler = () => {
-    setShowSmartDeviceNavSum(false);
-  };
 
   return (
     <div className="z-10 fixed top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora lg:hidden">
@@ -69,14 +48,14 @@ const MobileNavigation = () => {
 
         <ul className="flex flex-col space-y-12 text-xl text-gray-800 font-semibold">
           <div>
-            <MobileNavigationList
+            <NavigationList
               text="Xiaomi Phones"
               onOpenNavSum={openXiaomiNavSumHandler}
             />
             {windowSize <= 768 &&
               !showRedmiNavSum &&
               !showSmartDeviceNavSum && (
-                <MobileNavigationSummary
+                <NavigationSummary
                   data={mobileXiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
@@ -85,7 +64,7 @@ const MobileNavigation = () => {
             {windowSize >= 768 &&
               !showRedmiNavSum &&
               !showSmartDeviceNavSum && (
-                <MobileNavigationSummary
+                <NavigationSummary
                   data={xiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
@@ -94,14 +73,14 @@ const MobileNavigation = () => {
           </div>
 
           <div>
-            <MobileNavigationList
+            <NavigationList
               text="Redmi Phones"
               onOpenNavSum={openRedmiNavSumHandler}
             />
             {windowSize <= 768 &&
               !showXiaomiNavSum &&
               !showSmartDeviceNavSum && (
-                <MobileNavigationSummary
+                <NavigationSummary
                   data={mobileRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
@@ -110,7 +89,7 @@ const MobileNavigation = () => {
             {windowSize >= 768 &&
               !showXiaomiNavSum &&
               !showSmartDeviceNavSum && (
-                <MobileNavigationSummary
+                <NavigationSummary
                   data={tabletRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
@@ -119,19 +98,19 @@ const MobileNavigation = () => {
           </div>
 
           <div>
-            <MobileNavigationList
+            <NavigationList
               text="Smart Device"
               onOpenNavSum={openSmartDeviceNavSumHandler}
             />
             {windowSize <= 768 && !showRedmiNavSum && !showXiaomiNavSum && (
-              <MobileNavigationSummary
+              <NavigationSummary
                 data={mobileSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}
               />
             )}
             {windowSize >= 768 && (
-              <MobileNavigationSummary
+              <NavigationSummary
                 data={tabletSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}

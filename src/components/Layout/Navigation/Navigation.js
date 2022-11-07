@@ -1,45 +1,23 @@
-import { useState } from 'react';
+import useNavigation from '../../../hooks/use-navigation';
 
 import NavigationList from './NavigationList';
 import NavigationSummary from './NavigationSummary';
 import CartIcon from './NavigationIcons/CartIcon';
-import MobileNavigation from './MobileNavigation/MobileNavigation';
+import MobileNavigation from './MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 
 const Navigation = () => {
-  const [showXiaomiNavSum, setShowXiaomiNavSum] = useState(false);
-  const [showRedmiNavSum, setShowRedmiNavSum] = useState(false);
-  const [showSmartDeviceNavSum, setShowSmartDeviceNavSum] = useState(false);
-
-  const openXiaomiNavSumHandler = () => {
-    setShowXiaomiNavSum(prevVal => !prevVal);
-    setShowRedmiNavSum(false);
-    setShowSmartDeviceNavSum(false);
-  };
-
-  const closeXiaomiNavSumHandler = () => {
-    setShowXiaomiNavSum(false);
-  };
-
-  const openRedmiNavSumHandler = () => {
-    setShowRedmiNavSum(prevVal => !prevVal);
-    setShowXiaomiNavSum(false);
-    setShowSmartDeviceNavSum(false);
-  };
-
-  const closeRedmiNavSumHandler = () => {
-    setShowRedmiNavSum(false);
-  };
-
-  const openSmartDeviceNavSumHandler = () => {
-    setShowSmartDeviceNavSum(prevVal => !prevVal);
-    setShowXiaomiNavSum(false);
-    setShowRedmiNavSum(false);
-  };
-
-  const closeSmartDeviceNavSumHandler = () => {
-    setShowSmartDeviceNavSum(false);
-  };
+  const {
+    showXiaomiNavSum,
+    showRedmiNavSum,
+    showSmartDeviceNavSum,
+    openXiaomiNavSumHandler,
+    closeXiaomiNavSumHandler,
+    openRedmiNavSumHandler,
+    closeRedmiNavSumHandler,
+    openSmartDeviceNavSumHandler,
+    closeSmartDeviceNavSumHandler,
+  } = useNavigation();
 
   return (
     <div className="px-6 py-4 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
