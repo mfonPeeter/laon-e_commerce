@@ -1,4 +1,4 @@
-import useVideo from '../../../hooks/use-video';
+import useModal from '../../../hooks/use-modal';
 
 import img1 from '../../../assets/home-page/videos/rn10-series-video.jpg';
 import img2 from '../../../assets/home-page/videos/mi10-video.jpg';
@@ -12,21 +12,21 @@ const Videos = () => {
     showModalHandler: showRedmiModalHandler,
     closeOverlayHandler: closeRedmiOverlayHandler,
     closeModalHandler: closeRedmiModalHandler,
-  } = useVideo();
+  } = useModal();
 
   const {
     showModal: showMiModal,
     showModalHandler: showMiModalHandler,
     closeOverlayHandler: closeMiOverlayHandler,
     closeModalHandler: closeMiModalHandler,
-  } = useVideo();
+  } = useModal();
 
   const {
     showModal: showSmartTechModal,
     showModalHandler: showSmartTechModalHandler,
     closeOverlayHandler: closeSmartTechOverlayHandler,
     closeModalHandler: closeSmartTechModalHandler,
-  } = useVideo();
+  } = useModal();
 
   return (
     <section className="homepage-container mb-12">

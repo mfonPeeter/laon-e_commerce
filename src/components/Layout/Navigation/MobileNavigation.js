@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import useNavigation from '../../../hooks/use-navigation';
 
 import NavCloseIcon from './NavigationIcons/NavCloseIcon';
@@ -18,7 +19,11 @@ const getWindowSize = () => {
   return window.innerWidth;
 };
 
-const MobileNavigation = () => {
+const MobileNavigation = ({
+  showNavModal,
+  closeNavOverlayHandler,
+  closeNavModalHandler,
+}) => {
   const [windowSize, setWindowSize] = useState(getWindowSize);
   const {
     showXiaomiNavSum,
@@ -39,10 +44,22 @@ const MobileNavigation = () => {
   window.addEventListener('resize', windowResizeHandler);
 
   return (
-    <div className="z-10 fixed top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora lg:hidden">
-      <div className="w-10/12 h-screen px-6 py-4 bg-slate-100">
+    <div
+      className={`fixed top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] lg:hidden ${
+        showNavModal ? 'opacity-100 z-20' : ''
+      }`}
+      onClick={closeNavOverlayHandler}
+    >
+      <div
+        className={`w-10/12 h-screen px-6 py-4 bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] ${
+          showNavModal ? 'w-10/12 opacity-100' : ''
+        }`}
+      >
         <h2 className="mb-10 text-blue-700 font-bold text-4xl">Laon</h2>
-        <button className="absolute top-4 right-[6%] text-white md:right-[10%]">
+        <button
+          className="absolute top-4 right-[6%] text-white md:right-[10%]"
+          onClick={closeNavModalHandler}
+        >
           <NavCloseIcon />
         </button>
 

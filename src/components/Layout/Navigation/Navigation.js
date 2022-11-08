@@ -1,4 +1,5 @@
 import useNavigation from '../../../hooks/use-navigation';
+import useModal from '../../../hooks/use-modal';
 
 import NavigationList from './NavigationList';
 import NavigationSummary from './NavigationSummary';
@@ -18,15 +19,24 @@ const Navigation = () => {
     openSmartDeviceNavSumHandler,
     closeSmartDeviceNavSumHandler,
   } = useNavigation();
+  const {
+    showModal: showNavModal,
+    showModalHandler: showNavModalHandler,
+    closeOverlayHandler: closeNavOverlayHandler,
+    closeModalHandler: closeNavModalHandler,
+  } = useModal();
 
   return (
     <div className="px-6 py-4 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
-      <nav className="container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
+      <nav className="relative z-10 container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
         {/* Menu & Logo Container*/}
         <div className="flex items-center space-x-4">
           {/* Hamburger Menu */}
           <div className="lg:hidden">
-            <button className="hamburger focus:outline-none lg:hidden">
+            <button
+              className="hamburger focus:outline-none lg:hidden"
+              onClick={showNavModalHandler}
+            >
               <span className="hamburger-top"></span>
               <span className="hamburger-middle"></span>
               <span className="hamburger-bottom"></span>
@@ -90,7 +100,11 @@ const Navigation = () => {
         />
       )}
 
-      <MobileNavigation />
+      <MobileNavigation
+        showNavModal={showNavModal}
+        closeNavOverlayHandler={closeNavOverlayHandler}
+        closeNavModalHandler={closeNavModalHandler}
+      />
     </div>
   );
 };

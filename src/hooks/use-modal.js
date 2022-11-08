@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useVideo = () => {
+const useModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   const showModalHandler = () => {
@@ -23,4 +23,4 @@ const useVideo = () => {
   };
 };
 
-export default useVideo;
+export default useModal;
