@@ -18,8 +18,8 @@ const useModal = () => {
   return {
     showModal,
     showModalHandler,
-    closeOverlayHandler,
     closeModalHandler,
+    closeOverlayHandler,
   };
 };
 

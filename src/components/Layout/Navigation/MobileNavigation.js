@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import useNavigation from '../../../hooks/use-navigation';
 
 import NavCloseIcon from './NavigationIcons/NavCloseIcon';
 
 import NavigationList from './NavigationList';
-import NavigationSummary from './NavigationSummary';
+import MobileNavigationSummary from './MobileNavigationSummary';
 import {
   mobileRedmiData,
   mobileXiaomiData,
@@ -19,11 +19,7 @@ const getWindowSize = () => {
   return window.innerWidth;
 };
 
-const MobileNavigation = ({
-  showNavModal,
-  closeNavOverlayHandler,
-  closeNavModalHandler,
-}) => {
+const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
   const [windowSize, setWindowSize] = useState(getWindowSize);
   const {
     showXiaomiNavSum,
@@ -44,20 +40,21 @@ const MobileNavigation = ({
   window.addEventListener('resize', windowResizeHandler);
 
   return (
-    <div
-      className={`fixed top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] lg:hidden ${
-        showNavModal ? 'opacity-100 z-20' : ''
-      }`}
-      onClick={closeNavOverlayHandler}
-    >
+    <Fragment>
       <div
-        className={`w-10/12 h-screen px-6 py-4 bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] ${
-          showNavModal ? 'w-10/12 opacity-100' : ''
+        className={`fixed z-10 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
+          showNavModal ? 'opacity-100 translate-x-0' : ''
+        }`}
+        onClick={closeNavModalHandler}
+      />
+      <div
+        className={`fixed z-10 top-0 left-0 w-10/12 h-screen px-6 py-4 font-lora bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
+          showNavModal ? 'w-10/12 opacity-100 translate-x-0' : ''
         }`}
       >
         <h2 className="mb-10 text-blue-700 font-bold text-4xl">Laon</h2>
         <button
-          className="absolute top-4 right-[6%] text-white md:right-[10%]"
+          className="absolute top-4 -right-[12%] text-white md:-right-[7%]"
           onClick={closeNavModalHandler}
         >
           <NavCloseIcon />
@@ -72,7 +69,7 @@ const MobileNavigation = ({
             {windowSize <= 768 &&
               !showRedmiNavSum &&
               !showSmartDeviceNavSum && (
-                <NavigationSummary
+                <MobileNavigationSummary
                   data={mobileXiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
@@ -81,7 +78,7 @@ const MobileNavigation = ({
             {windowSize >= 768 &&
               !showRedmiNavSum &&
               !showSmartDeviceNavSum && (
-                <NavigationSummary
+                <MobileNavigationSummary
                   data={xiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
@@ -97,7 +94,7 @@ const MobileNavigation = ({
             {windowSize <= 768 &&
               !showXiaomiNavSum &&
               !showSmartDeviceNavSum && (
-                <NavigationSummary
+                <MobileNavigationSummary
                   data={mobileRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
@@ -106,7 +103,7 @@ const MobileNavigation = ({
             {windowSize >= 768 &&
               !showXiaomiNavSum &&
               !showSmartDeviceNavSum && (
-                <NavigationSummary
+                <MobileNavigationSummary
                   data={tabletRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
@@ -120,14 +117,14 @@ const MobileNavigation = ({
               onOpenNavSum={openSmartDeviceNavSumHandler}
             />
             {windowSize <= 768 && !showRedmiNavSum && !showXiaomiNavSum && (
-              <NavigationSummary
+              <MobileNavigationSummary
                 data={mobileSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}
               />
             )}
             {windowSize >= 768 && (
-              <NavigationSummary
+              <MobileNavigationSummary
                 data={tabletSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}
@@ -136,7 +133,7 @@ const MobileNavigation = ({
           </div>
         </ul>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

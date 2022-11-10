@@ -1,9 +1,9 @@
 import RightArrowIcon from './NavigationIcons/RightArrowIcon';
 
-const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
+const MobileNavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
   return (
     <div
-      className={`hidden items-center container max-w-screen-xl space-x-14 px-6 w-full mx-auto h-0 shadow-md opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] lg:flex ${
+      className={`flex items-center space-x-2 py-2 px-2 h-0 shadow-md opacity-0 transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] ${
         showNavSum ? 'opacity-100 h-[30vh]' : ''
       }`}
       onMouseLeave={onCloseNavSum}
@@ -26,4 +26,4 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
   );
 };
 
-export default NavigationSummary;
+export default MobileNavigationSummary;

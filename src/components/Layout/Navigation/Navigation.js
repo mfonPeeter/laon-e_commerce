@@ -22,13 +22,12 @@ const Navigation = () => {
   const {
     showModal: showNavModal,
     showModalHandler: showNavModalHandler,
-    closeOverlayHandler: closeNavOverlayHandler,
     closeModalHandler: closeNavModalHandler,
   } = useModal();
 
   return (
     <div className="px-6 py-4 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
-      <nav className="relative z-10 container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
+      <nav className="container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
         {/* Menu & Logo Container*/}
         <div className="flex items-center space-x-4">
           {/* Hamburger Menu */}
@@ -102,7 +101,6 @@ const Navigation = () => {
 
       <MobileNavigation
         showNavModal={showNavModal}
-        closeNavOverlayHandler={closeNavOverlayHandler}
         closeNavModalHandler={closeNavModalHandler}
       />
     </div>
