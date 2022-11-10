@@ -6,6 +6,7 @@ import NavigationSummary from './NavigationSummary';
 import CartIcon from './NavigationIcons/CartIcon';
 import MobileNavigation from './MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
+import MenuBar from './NavigationIcons/MenuBar';
 
 const Navigation = () => {
   const {
@@ -29,18 +30,14 @@ const Navigation = () => {
     <div className="px-6 py-4 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
       <nav className="container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
         {/* Menu & Logo Container*/}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           {/* Hamburger Menu */}
-          <div className="lg:hidden">
-            <button
-              className="hamburger focus:outline-none lg:hidden"
-              onClick={() => showNavModalHandler('overflow-y-hidden')}
-            >
-              <span className="hamburger-top"></span>
-              <span className="hamburger-middle"></span>
-              <span className="hamburger-bottom"></span>
-            </button>
-          </div>
+          <button
+            className="hamburger focus:outline-none lg:hidden"
+            onClick={() => showNavModalHandler('overflow-y-hidden')}
+          >
+            <MenuBar />
+          </button>
 
           <h2 className="text-blue-700 font-bold text-4xl">Laon</h2>
         </div>
