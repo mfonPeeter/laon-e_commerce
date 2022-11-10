@@ -34,7 +34,7 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               className="hamburger focus:outline-none lg:hidden"
-              onClick={showNavModalHandler}
+              onClick={() => showNavModalHandler('overflow-y-hidden')}
             >
               <span className="hamburger-top"></span>
               <span className="hamburger-middle"></span>

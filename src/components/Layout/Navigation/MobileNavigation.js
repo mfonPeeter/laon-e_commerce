@@ -45,7 +45,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
         className={`fixed z-10 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
           showNavModal ? 'opacity-100 translate-x-0' : ''
         }`}
-        onClick={closeNavModalHandler}
+        onClick={() => closeNavModalHandler('overflow-y-hidden')}
       />
       <div
         className={`fixed z-10 top-0 left-0 w-10/12 h-screen px-6 py-4 font-lora bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
@@ -55,7 +55,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
         <h2 className="mb-10 text-blue-700 font-bold text-4xl">Laon</h2>
         <button
           className="absolute top-4 -right-[12%] text-white md:-right-[7%]"
-          onClick={closeNavModalHandler}
+          onClick={() => closeNavModalHandler('overflow-y-hidden')}
         >
           <NavCloseIcon />
         </button>

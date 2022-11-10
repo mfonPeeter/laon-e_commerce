@@ -107,3 +107,10 @@
     @apply mt-[630px];
   }
 }
+
+/* Media Queries */
+@media (min-width: 1024px) {
+  body {
+    overflow-y: visible !important;
+  }
+}
