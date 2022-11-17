@@ -1,12 +1,12 @@
 // import HomePage from './pages/HomePage';
 import Layout from './components/Layout/Layout';
-import Products from './components/Products/Products';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
   return (
     <Layout>
       {/* <HomePage /> */}
-      <Products />
+      <ProductsPage />
     </Layout>
   );
 }
