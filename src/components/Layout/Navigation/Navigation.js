@@ -27,13 +27,13 @@ const Navigation = () => {
   } = useModal();
 
   return (
-    <div className="px-6 py-4 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
+    <div className="px-6 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7]">
       <nav className="container mx-auto max-w-screen-xl flex items-center justify-between font-lora font-semibold">
         {/* Menu & Logo Container*/}
         <div className="flex items-center space-x-3">
           {/* Hamburger Menu */}
           <button
-            className="hamburger focus:outline-none lg:hidden"
+            className="focus:outline-none lg:hidden"
             onClick={() => showNavModalHandler('overflow-y-hidden')}
           >
             <MenuBar />
