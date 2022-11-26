@@ -6,6 +6,7 @@ body {
   @apply bg-zinc-100;
 }
 
+/* HOMEPAGE */
 /* Global Container */
 .homepage-container {
   @apply container mx-auto max-w-screen-xl px-6 md:px-10;
@@ -38,7 +39,6 @@ body {
 }
 
 /* Media Queries */
-
 /* Move Dot */
 @media (min-width: 518px) {
   .move-dot-mt {
@@ -82,9 +82,18 @@ body {
   }
 }
 
-/* Media Queries */
 @media (min-width: 1024px) {
   body {
     overflow-y: visible !important;
   }
+}
+
+/* PRODUCTS PAGE */
+/* Links */
+.page-link-btn {
+  @apply flex items-center justify-center w-8 h-8 border rounded-full transition-colors hover:bg-blue-700 active:bg-blue-700;
+}
+
+.page-link {
+  @apply flex items-center justify-center w-6 h-6 rounded-full transition-colors hover:bg-blue-700 hover:text-white active:bg-blue-700 active:text-white;
 }
