@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import useNavigation from '../../../hooks/use-navigation';
 import useModal from '../../../hooks/use-modal';
 
@@ -57,9 +59,9 @@ const Navigation = () => {
               onOpenNavSum={openSmartDeviceNavSumHandler}
             />
           </ul>
-          <a href="products-link" className="products-link">
+          <Link to="/products" className="products-link">
             All Products
-          </a>
+          </Link>
 
           <a
             href="cart"

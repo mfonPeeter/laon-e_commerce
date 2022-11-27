@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12T-pro-specs.webp';
 import img2 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-Pro-specs.png';
@@ -41,9 +42,9 @@ const HeroSection = () => {
         <p className="mb-6 max-w-sm mx-auto font-raleway font-semibold md:mx-0">
           Discounts are given every last week of the month. Don't miss out!
         </p>
-        <a href="all-products" className="products-link">
+        <Link to="/products" className="products-link">
           All Products &rarr;
-        </a>
+        </Link>
       </div>
 
       <div className="relative w-full h-full md:w-1/2">

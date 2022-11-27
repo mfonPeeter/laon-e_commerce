@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import RightArrowIcon from './NavigationIcons/RightArrowIcon';
 
 const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
@@ -14,14 +15,15 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
           <p className="font-lora text-base text-center">{obj.title}</p>
         </div>
       ))}
-      <a
-        href="all-products"
+      <Link
+        to="/products"
         className="flex items-center justify-center w-14 h-14 border-2 border-gray-500 rounded-full group transition-colors hover:border-blue-500"
+        onClick={onCloseNavSum}
       >
         <span className="transition group-hover:text-blue-500">
           <RightArrowIcon />
         </span>
-      </a>
+      </Link>
     </div>
   );
 };

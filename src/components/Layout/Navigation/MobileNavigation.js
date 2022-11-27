@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import useNavigation from '../../../hooks/use-navigation';
 
@@ -73,6 +74,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                   data={mobileXiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
+                  closeNavModalHandler={closeNavModalHandler}
                 />
               )}
             {windowSize >= 768 &&
@@ -82,6 +84,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                   data={xiaomiData}
                   showNavSum={showXiaomiNavSum}
                   onCloseNavSum={closeXiaomiNavSumHandler}
+                  closeNavModalHandler={closeNavModalHandler}
                 />
               )}
           </div>
@@ -98,6 +101,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                   data={mobileRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
+                  closeNavModalHandler={closeNavModalHandler}
                 />
               )}
             {windowSize >= 768 &&
@@ -107,6 +111,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                   data={tabletRedmiData}
                   showNavSum={showRedmiNavSum}
                   onCloseNavSum={closeRedmiNavSumHandler}
+                  closeNavModalHandler={closeNavModalHandler}
                 />
               )}
           </div>
@@ -121,6 +126,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                 data={mobileSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}
+                closeNavModalHandler={closeNavModalHandler}
               />
             )}
             {windowSize >= 768 && (
@@ -128,9 +134,18 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
                 data={tabletSmartDeviceData}
                 showNavSum={showSmartDeviceNavSum}
                 onCloseNavSum={closeSmartDeviceNavSumHandler}
+                closeNavModalHandler={closeNavModalHandler}
               />
             )}
           </div>
+
+          <Link
+            to="/products"
+            className="products-link relative z-10  text-center md:w-36"
+            onClick={() => closeNavModalHandler('overflow-y-hidden')}
+          >
+            All Products
+          </Link>
         </ul>
       </div>
     </Fragment>
