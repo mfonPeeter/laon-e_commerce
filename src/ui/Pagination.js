@@ -12,7 +12,7 @@ const Pagination = ({
   return (
     <div className="flex items-center justify-center space-x-4 mb-6">
       <Link
-        to="products"
+        to=""
         className={`page-link-btn group ${
           disableDecreaseButton
             ? 'pointer-events-none border-gray-400'
@@ -30,7 +30,7 @@ const Pagination = ({
       </Link>
 
       <Link
-        to="products"
+        to=""
         className={`page-link ${
           disableDecreaseButton
             ? 'pointer-events-none bg-blue-700 text-white'
@@ -41,7 +41,7 @@ const Pagination = ({
         1
       </Link>
       <Link
-        to="product?page=2"
+        to="?page=2"
         className={`page-link ${
           disableIncreaseButton
             ? 'pointer-events-none bg-blue-700 text-white'
@@ -53,7 +53,7 @@ const Pagination = ({
       </Link>
 
       <Link
-        to="products?page=2"
+        to="?page=2"
         className={`page-link-btn group ${
           disableIncreaseButton
             ? 'pointer-events-none border-gray-400'

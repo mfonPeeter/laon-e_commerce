@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import HeroSection from '../components/HomePage/HeroSection';
 import SmallBanner from '../components/HomePage/SmallBanner';
@@ -18,4 +18,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default React.memo(HomePage);

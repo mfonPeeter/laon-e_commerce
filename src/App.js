@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 
 import HomePage from './pages/HomePage';
@@ -12,11 +12,20 @@ function App() {
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
 
+  const totalPage = useRef();
+
+  const location = useLocation();
+
   const fetchProducts = useCallback(async () => {
-    const { data } = await commerce.products.list({
+    const response = await commerce.products.list({
       limit: 20,
       page: pageNo,
     });
+
+    const { data } = response;
+    const { total_pages: totalPages } = response.meta.pagination;
+
+    totalPage.current = totalPages;
 
     setProducts(data);
   }, [pageNo]);
@@ -25,19 +34,26 @@ function App() {
     fetchProducts();
   }, [fetchProducts]);
 
-  const decreasePageNoHandler = () => {
+  const decreasePageNoHandler = useCallback(() => {
+    if (pageNo === 1) return;
     setPageNo(prevPage => --prevPage);
-    setDisableDecreaseButton(prevVal => !prevVal);
-    setDisableIncreaseButton(prevVal => !prevVal);
+    setDisableDecreaseButton(true);
+    setDisableIncreaseButton(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  };
+  }, [pageNo]);
 
-  const increasePageNoHandler = () => {
+  const increasePageNoHandler = useCallback(() => {
+    if (pageNo >= totalPage.current) return;
     setPageNo(prevPage => ++prevPage);
-    setDisableDecreaseButton(prevVal => !prevVal);
-    setDisableIncreaseButton(prevVal => !prevVal);
+    setDisableDecreaseButton(false);
+    setDisableIncreaseButton(true);
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  };
+  }, [pageNo]);
+
+  useEffect(() => {
+    if (location.search === '') decreasePageNoHandler();
+    if (location.search === '?page=2') increasePageNoHandler();
+  }, [location.search, decreasePageNoHandler, increasePageNoHandler]);
 
   return (
     <Layout>
@@ -45,7 +61,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
         <Route
-          path="/products"
+          path="/products/*"
           element={
             <ProductsPage
               products={products}
