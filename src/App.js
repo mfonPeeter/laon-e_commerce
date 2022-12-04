@@ -7,7 +7,7 @@ import Layout from './components/Layout/Layout';
 import ProductsPage from './pages/ProductsPage';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
   const [pageNo, setPageNo] = useState(1);
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
@@ -21,6 +21,8 @@ function App() {
       limit: 20,
       page: pageNo,
     });
+
+    console.log(response);
 
     const { data } = response;
     const { total_pages: totalPages } = response.meta.pagination;

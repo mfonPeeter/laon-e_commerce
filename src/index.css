@@ -97,3 +97,45 @@ body {
 .page-link {
   @apply flex items-center justify-center w-6 h-6 rounded-full transition-colors hover:bg-blue-700 hover:text-white active:bg-blue-700 active:text-white;
 }
+
+/* SKELETON FRAMEWORK */
+.skeleton {
+  @apply my-3 bg-[#ddd] rounded;
+}
+
+.skeleton.image {
+  @apply w-44 h-48;
+}
+
+.skeleton.tag {
+  @apply w-1/2 h-7;
+}
+
+.skeleton.text {
+  @apply w-full h-3 -mt-1;
+}
+
+.skeleton.title {
+  @apply w-1/2 h-5;
+}
+
+.skeleton.price {
+  @apply w-1/2 h-5;
+}
+
+.skeleton.btn {
+  @apply w-full h-8;
+}
+
+/* Shimmer Animation */
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
