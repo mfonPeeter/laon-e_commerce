@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 
@@ -7,14 +7,15 @@ import Layout from './components/Layout/Layout';
 import ProductsPage from './pages/ProductsPage';
 
 function App() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [pageNo, setPageNo] = useState(1);
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
 
-  const totalPage = useRef();
-
   const location = useLocation();
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const page = queryParams.get('page');
 
   const fetchProducts = useCallback(async () => {
     const response = await commerce.products.list({
@@ -22,22 +23,21 @@ function App() {
       page: pageNo,
     });
 
-    console.log(response);
-
     const { data } = response;
-    const { total_pages: totalPages } = response.meta.pagination;
+    const { current_page: currentPage } = response.meta.pagination;
 
-    totalPage.current = totalPages;
+    if (!page && currentPage !== 1) return;
+    if (+page && currentPage !== +page) return;
 
     setProducts(data);
-  }, [pageNo]);
+  }, [pageNo, page]);
 
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
   const decreasePageNoHandler = useCallback(() => {
-    if (pageNo === 1) return;
+    if (pageNo <= 1) return;
     setPageNo(prevPage => --prevPage);
     setDisableDecreaseButton(true);
     setDisableIncreaseButton(false);
@@ -45,12 +45,12 @@ function App() {
   }, [pageNo]);
 
   const increasePageNoHandler = useCallback(() => {
-    if (pageNo >= totalPage.current) return;
+    if (pageNo >= +page) return;
     setPageNo(prevPage => ++prevPage);
     setDisableDecreaseButton(false);
     setDisableIncreaseButton(true);
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  }, [pageNo]);
+  }, [pageNo, page]);
 
   useEffect(() => {
     if (location.search === '') decreasePageNoHandler();

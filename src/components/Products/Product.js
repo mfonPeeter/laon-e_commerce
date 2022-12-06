@@ -1,6 +1,4 @@
 const Product = ({ product }) => {
-  // console.log(product);
-
   const { formatted_with_symbol: formattedWithSymbol } = product.price;
 
   return (
