@@ -40,6 +40,7 @@ const Pagination = ({
       >
         1
       </Link>
+
       <Link
         to="/products?page=2"
         className={`page-link ${

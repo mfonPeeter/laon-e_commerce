@@ -89,7 +89,7 @@ body {
 }
 
 /* PRODUCTS PAGE */
-/* Links */
+/* Pagination */
 .page-link-btn {
   @apply flex items-center justify-center w-8 h-8 border rounded-full transition-colors hover:bg-blue-700 active:bg-blue-700;
 }
