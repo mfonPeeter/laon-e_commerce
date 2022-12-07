@@ -5,7 +5,7 @@ const ProductVideo = ({ img, showIframeModalHandler, title, extraTitle }) => {
     <div>
       <div
         className="group relative cursor-pointer"
-        onClick={showIframeModalHandler}
+        onClick={() => showIframeModalHandler('overflow-auto')}
       >
         <img src={img} alt="Redmi Note 10 Series" />
         <div className="flex flex-col items-center space-y-3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full">

@@ -21,7 +21,7 @@ const EmbedProductVideo = ({
             </h4>
             <button
               className="absolute top-1/2 right-3 -translate-y-1/2 flex items-center justify-center w-7 h-7 text-white rounded-full transition-colors hover:bg-red-600 md:right-0 md:left-[89%] lg:left-[85%] xl:left-[81%]"
-              onClick={closeModalHandler}
+              onClick={() => closeModalHandler('overflow-auto')}
             >
               <CloseIcon />
             </button>

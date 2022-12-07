@@ -3,8 +3,9 @@ import { useState } from 'react';
 const useModal = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const showModalHandler = (overflowY = '') => {
+  const showModalHandler = overflowY => {
     setShowModal(true);
+    console.log(overflowY);
     document.body.classList.add(overflowY);
   };
 
@@ -12,7 +13,7 @@ const useModal = () => {
     setShowModal(false);
   };
 
-  const closeModalHandler = (overflowY = '') => {
+  const closeModalHandler = overflowY => {
     setShowModal(false);
     document.body.classList.remove(overflowY);
   };
