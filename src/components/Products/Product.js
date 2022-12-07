@@ -1,4 +1,4 @@
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
   const { formatted_with_symbol: formattedWithSymbol } = product.price;
 
   return (
@@ -25,7 +25,10 @@ const Product = ({ product }) => {
         </h5>
       </div>
 
-      <button className="w-full py-2 text-sm text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800 lg:opacity-0 lg:group-hover:opacity-100">
+      <button
+        onClick={() => onAddToCart(product.id, 1)}
+        className="w-full py-2 text-sm text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800 lg:opacity-0 lg:group-hover:opacity-100"
+      >
         Add to cart
       </button>
     </div>

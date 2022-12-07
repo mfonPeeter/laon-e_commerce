@@ -10,7 +10,7 @@ import MobileNavigation from './MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 import MenuBar from './NavigationIcons/MenuBar';
 
-const Navigation = () => {
+const Navigation = ({ totalItems }) => {
   const {
     showXiaomiNavSum,
     showRedmiNavSum,
@@ -69,9 +69,11 @@ const Navigation = () => {
           >
             <CartIcon />
             <span>Cart</span>
-            <span className="absolute top-3 right-8 flex items-center justify-center text-xs w-4 h-4 text-white bg-blue-800 rounded-full">
-              1
-            </span>
+            {totalItems > 0 && (
+              <span className="absolute top-3 right-8 flex items-center justify-center text-xs w-4 h-4 text-white bg-blue-800 rounded-full">
+                {totalItems}
+              </span>
+            )}
           </a>
         </div>
       </nav>

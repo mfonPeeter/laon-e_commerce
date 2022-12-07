@@ -6,6 +6,7 @@ import Pagination from '../ui/Pagination';
 
 const ProductsPage = ({
   products,
+  onAddToCart,
   decreasePageNoHandler,
   increasePageNoHandler,
   disableDecreaseButton,
@@ -13,7 +14,7 @@ const ProductsPage = ({
 }) => {
   return (
     <Fragment>
-      <Products products={products} />
+      <Products products={products} onAddToCart={onAddToCart} />
       <Pagination
         decreasePageNoHandler={decreasePageNoHandler}
         increasePageNoHandler={increasePageNoHandler}

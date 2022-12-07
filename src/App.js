@@ -9,6 +9,7 @@ import ProductsPage from './pages/ProductsPage';
 function App() {
   const [products, setProducts] = useState([]);
   const [pageNo, setPageNo] = useState(1);
+  const [cart, setCart] = useState({});
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
 
@@ -32,9 +33,24 @@ function App() {
     setProducts(data);
   }, [pageNo, page]);
 
+  const fetchCart = async () => {
+    setCart(await commerce.cart.retrieve());
+  };
+
+  const addToCartHandler = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity);
+
+    setCart(item);
+  };
+
+  const { total_items: totalItems } = cart;
+
   useEffect(() => {
     fetchProducts();
+    fetchCart();
   }, [fetchProducts]);
+
+  console.log(cart);
 
   const decreasePageNoHandler = useCallback(() => {
     if (pageNo <= 1) return;
@@ -58,7 +74,7 @@ function App() {
   }, [location.search, decreasePageNoHandler, increasePageNoHandler]);
 
   return (
-    <Layout>
+    <Layout totalItems={totalItems}>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
@@ -67,6 +83,7 @@ function App() {
           element={
             <ProductsPage
               products={products}
+              onAddToCart={addToCartHandler}
               decreasePageNoHandler={decreasePageNoHandler}
               increasePageNoHandler={increasePageNoHandler}
               disableDecreaseButton={disableDecreaseButton}
