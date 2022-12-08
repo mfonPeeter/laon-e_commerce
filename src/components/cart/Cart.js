@@ -1,21 +1,48 @@
+import { Link } from 'react-router-dom';
+
 import CartItem from './CartItem';
+import CartIcon from '../Layout/Navigation/NavigationIcons/CartIcon';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
 const Cart = ({ cart }) => {
-  const { line_items: lineItems } = cart;
+  const {
+    line_items: lineItems,
+    subtotal: subTotal,
+    total_items: totalItems,
+  } = cart;
 
-  // console.log(lineItems);
-
-  // console.log(subtotal);
+  const EmptyCart = () => (
+    <div className="w-full text-center px-2 py-28 bg-white rounded">
+      <div className="flex justify-center mb-4">
+        <div className="w-24 h-24 p-3 bg-gray-200 text-blue-700 rounded-full">
+          <CartIcon />
+        </div>
+      </div>
+      <div>
+        <h5 className="mb-3 text-gray-700 font-semibold">
+          Your cart is empty!
+        </h5>
+        <p className="mb-6 text-sm">
+          Browse our categories and discover our best deals!
+        </p>
+        <Link
+          to="/products"
+          className="inline-block py-3 w-44 text-center text-white font-semibold uppercase bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800"
+        >
+          Start Shopping
+        </Link>
+      </div>
+    </div>
+  );
 
   const FilledCart = () => (
-    <div>
+    <>
       <div className="lg:flex lg:flex-row-reverse lg:items-start lg:space-x-4 lg:space-x-reverse">
         <div className="sticky-cart-summary p-2 mb-4 font-lora bg-white rounded lg:w-1/3">
           <div className="flex justify-between mb-2">
-            <h3 className="font-semibold">Subtotal (3 items)</h3>
+            <h3 className="font-semibold">Subtotal ({totalItems} items)</h3>
             <h4 className="text-lg font-bold md:text-xl">
-              {/* {formattedWithSymbol.slice(0, -3)} */}
-              2000
+              {formattedWithSymbol.slice(0, -3)}
             </h4>
           </div>
           <p className="-mt-1 text-gray-700 text-sm lg:mb-3">
@@ -51,19 +78,21 @@ const Cart = ({ cart }) => {
           Empty cart
         </button>
       </div>
-    </div>
+    </>
   );
 
-  if (!lineItems) return <p>Loading...</p>;
+  if (!lineItems) return <LoadingSpinner />;
 
-  // const { formatted_with_symbol: formattedWithSymbol } = cart.subTotal;
+  const { formatted_with_symbol: formattedWithSymbol } = subTotal;
 
   return (
     <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-8">
-      <h2 className="px-2 mb-4 text-xl text-gray-700 font-lora font-bold md:text-2xl">
-        Shopping Cart
-      </h2>
-      {lineItems && <FilledCart />}
+      {!lineItems && (
+        <h2 className="px-2 mb-4 text-xl text-gray-700 font-lora font-bold md:text-2xl">
+          Shopping Cart
+        </h2>
+      )}
+      {!lineItems.length ? <EmptyCart /> : <FilledCart />}
     </div>
   );
 };
