@@ -63,18 +63,16 @@ const Navigation = ({ totalItems }) => {
             All Products
           </Link>
 
-          <a
-            href="cart"
+          <Link
+            to="/cart"
             className="relative flex items-center w-16 h-16 transition-colors hover:text-blue-700"
           >
             <CartIcon />
             <span>Cart</span>
-            {totalItems > 0 && (
-              <span className="absolute top-3 right-8 flex items-center justify-center text-xs w-4 h-4 text-white bg-blue-800 rounded-full">
-                {totalItems}
-              </span>
-            )}
-          </a>
+            <span className="absolute top-3 right-8 flex items-center justify-center text-xs w-4 h-4 text-white bg-blue-800 rounded-full">
+              {totalItems > 0 ? totalItems : 0}
+            </span>
+          </Link>
         </div>
       </nav>
 

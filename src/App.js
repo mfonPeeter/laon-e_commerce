@@ -3,8 +3,9 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 
 import HomePage from './pages/HomePage';
-import Layout from './components/Layout/Layout';
 import ProductsPage from './pages/ProductsPage';
+import Layout from './components/Layout/Layout';
+import Cart from './components/cart/Cart';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -91,6 +92,7 @@ function App() {
             />
           }
         />
+        <Route path="/cart" element={<Cart cart={cart} />} />
       </Routes>
     </Layout>
   );
