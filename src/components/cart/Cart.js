@@ -4,7 +4,13 @@ import CartItem from './CartItem';
 import CartIcon from '../Layout/Navigation/NavigationIcons/CartIcon';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  updateCartQtyHandler,
+  removeFromCartHandler,
+  emptyCartHandler,
+  isLoading,
+}) => {
   const {
     line_items: lineItems,
     subtotal: subTotal,
@@ -27,7 +33,7 @@ const Cart = ({ cart }) => {
         </p>
         <Link
           to="/products"
-          className="inline-block py-3 w-44 text-center text-white font-semibold uppercase bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800"
+          className="cart-link inline-block py-3 w-44 uppercase"
         >
           Start Shopping
         </Link>
@@ -52,29 +58,35 @@ const Cart = ({ cart }) => {
           <div className="hidden lg:block lg:mb-3 lg:border-b" />
 
           <div className="hidden font-lora px-2 lg:block lg:px-0">
-            <button className="py-3 w-full text-center text-white font-semibold bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800">
+            <button className="cart-btn py-3 w-full">
               Proceed to checkout
             </button>
           </div>
         </div>
 
         <div className="sticky-default bg-white font-lora p-2 mb-4 shadow-md lg:hidden">
-          <button className="py-3 w-full text-center text-white font-semibold bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800">
-            Proceed to checkout
-          </button>
+          <button className="cart-btn py-3 w-full">Proceed to checkout</button>
         </div>
 
         <div className="mb-4">
           {lineItems.map(item => (
             <div key={item.id}>
-              <CartItem item={item} />
+              <CartItem
+                item={item}
+                updateCartQtyHandler={updateCartQtyHandler}
+                removeFromCartHandler={removeFromCartHandler}
+                isLoading={isLoading}
+              />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="px-2 mb-4 lg:px-0">
-        <button className="w-full p-2 text-white font-semibold font-lora bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800 sm:w-52">
+      <div className="mb-4 px-2 md:px-0">
+        <button
+          onClick={emptyCartHandler}
+          className="cart-btn w-full p-2 sm:w-52"
+        >
           Empty cart
         </button>
       </div>
@@ -87,11 +99,12 @@ const Cart = ({ cart }) => {
 
   return (
     <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-8">
-      {!lineItems && (
-        <h2 className="px-2 mb-4 text-xl text-gray-700 font-lora font-bold md:text-2xl">
+      {lineItems && (
+        <h2 className="px-2 mb-4 text-xl text-gray-700 font-lora font-bold md:px-0 md:text-2xl">
           Shopping Cart
         </h2>
       )}
+
       {!lineItems.length ? <EmptyCart /> : <FilledCart />}
     </div>
   );

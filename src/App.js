@@ -4,10 +4,11 @@ import { commerce } from './lib/commerce';
 
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
 import Layout from './components/Layout/Layout';
-import Cart from './components/cart/Cart';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [pageNo, setPageNo] = useState(1);
   const [cart, setCart] = useState({});
@@ -39,12 +40,42 @@ function App() {
   };
 
   const addToCartHandler = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity);
+    setIsLoading(true);
+    const response = await commerce.cart.add(productId, quantity);
 
-    setCart(item);
+    if (response) setIsLoading(false);
+
+    setCart(response);
   };
 
   const { total_items: totalItems } = cart;
+
+  const updateCartQtyHandler = async (productId, quantity) => {
+    setIsLoading(true);
+    const response = await commerce.cart.update(productId, { quantity });
+
+    if (response) setIsLoading(false);
+
+    setCart(response);
+  };
+
+  const removeFromCartHandler = async productId => {
+    setIsLoading(true);
+    const response = await commerce.cart.remove(productId);
+
+    if (response) setIsLoading(false);
+
+    setCart(response);
+  };
+
+  const emptyCartHandler = async () => {
+    setIsLoading(true);
+    const response = await commerce.cart.empty();
+
+    if (response) setIsLoading(false);
+
+    setCart(response);
+  };
 
   useEffect(() => {
     fetchProducts();
@@ -89,10 +120,22 @@ function App() {
               increasePageNoHandler={increasePageNoHandler}
               disableDecreaseButton={disableDecreaseButton}
               disableIncreaseButton={disableIncreaseButton}
+              isLoading={isLoading}
             />
           }
         />
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              updateCartQtyHandler={updateCartQtyHandler}
+              removeFromCartHandler={removeFromCartHandler}
+              emptyCartHandler={emptyCartHandler}
+              isLoading={isLoading}
+            />
+          }
+        />
       </Routes>
     </Layout>
   );

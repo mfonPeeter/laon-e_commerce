@@ -149,6 +149,11 @@ body {
   }
 }
 
+.cart-btn,
+.cart-link {
+  @apply text-center text-white font-semibold bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800;
+}
+
 .sticky-default {
   position: -webkit-sticky;
   position: sticky;
@@ -163,33 +168,29 @@ body {
 
 /* Loading Spinner */
 .loading-spinner {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
+  @apply inline-block relative w-20 h-20;
 }
 
 .loading-spinner div {
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
   border: 8px solid #0000ff;
   border-radius: 50%;
   animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #0000ff transparent transparent transparent;
+  @apply block absolute w-16 h-16 m-2;
 }
 
-.loading-spinner div:nth-child(1) {
+.loading-spinner div:nth-child(1),
+.small-loading-spinner div:nth-child(1) {
   animation-delay: -0.45s;
 }
 
-.loading-spinner div:nth-child(2) {
+.loading-spinner div:nth-child(2),
+.small-loading-spinner div:nth-child(2) {
   animation-delay: -0.3s;
 }
 
-.loading-spinner div:nth-child(3) {
+.loading-spinner div:nth-child(3),
+.small-loading-spinner div:nth-child(3) {
   animation-delay: -0.15s;
 }
 
@@ -200,4 +201,16 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.small-loading-spinner {
+  @apply flex items-center justify-center relative w-8 h-8;
+}
+
+.small-loading-spinner div {
+  border: 3px solid #0000ff;
+  border-radius: 50%;
+  animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #0000ff transparent transparent transparent;
+  @apply block absolute w-6 h-6 m-2;
 }

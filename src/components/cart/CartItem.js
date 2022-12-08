@@ -1,4 +1,11 @@
-const CartItem = ({ item }) => {
+import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
+
+const CartItem = ({
+  item,
+  updateCartQtyHandler,
+  removeFromCartHandler,
+  isLoading,
+}) => {
   const { line_total: lineTotal } = item;
   const { formatted_with_symbol: formattedWithSymbol } = lineTotal;
 
@@ -25,16 +32,24 @@ const CartItem = ({ item }) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <button className="flex items-center space-x-1 px-2 py-1 rounded first-letter:transition-colors outline-blue-900 hover:bg-blue-200">
-          <ion-icon name="trash" id="delete-icon"></ion-icon>
-          <span className="text-blue-600 font-semibold uppercase">Remove</span>
-        </button>
+        <div className="flex">
+          <button
+            onClick={() => removeFromCartHandler(item.id)}
+            className="flex items-center space-x-1 px-2 py-1 rounded first-letter:transition-colors outline-blue-900 hover:bg-blue-200"
+          >
+            <ion-icon name="trash" id="delete-icon"></ion-icon>
+            <span className="text-blue-600 font-semibold uppercase">
+              Remove
+            </span>
+          </button>
+        </div>
 
         <div className="flex items-center space-x-10 lg:space-x-6">
           <button
+            onClick={() => updateCartQtyHandler(item.id, item.quantity - 1)}
             className={`w-8 h-8 text-white text-4xl rounded transition-colors ${
               item.quantity === 1
-                ? 'bg-blue-300'
+                ? 'bg-blue-300 pointer-events-none'
                 : 'bg-blue-700 outline-blue-900 hover:bg-blue-800 shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)]'
             }  `}
           >
@@ -42,8 +57,11 @@ const CartItem = ({ item }) => {
               -
             </span>
           </button>
-          <span>{item.quantity}</span>
-          <button className=" w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800">
+          {isLoading ? <SmallLoadingSpinner /> : <span>{item.quantity}</span>}
+          <button
+            onClick={() => updateCartQtyHandler(item.id, item.quantity + 1)}
+            className=" w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800"
+          >
             <span className="flex items-end justify-center w-full h-full">
               +
             </span>

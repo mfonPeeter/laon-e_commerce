@@ -11,10 +11,15 @@ const ProductsPage = ({
   increasePageNoHandler,
   disableDecreaseButton,
   disableIncreaseButton,
+  isLoading,
 }) => {
   return (
     <Fragment>
-      <Products products={products} onAddToCart={onAddToCart} />
+      <Products
+        products={products}
+        onAddToCart={onAddToCart}
+        isLoading={isLoading}
+      />
       <Pagination
         decreasePageNoHandler={decreasePageNoHandler}
         increasePageNoHandler={increasePageNoHandler}
