@@ -5,6 +5,7 @@ import { commerce } from './lib/commerce';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 import Layout from './components/Layout/Layout';
 
 function App() {
@@ -136,6 +137,7 @@ function App() {
             />
           }
         />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </Layout>
   );

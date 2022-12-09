@@ -58,14 +58,20 @@ const Cart = ({
           <div className="hidden lg:block lg:mb-3 lg:border-b" />
 
           <div className="hidden font-lora px-2 lg:block lg:px-0">
-            <button className="cart-btn py-3 w-full">
-              Proceed to checkout
-            </button>
+            <Link to="/checkout">
+              <button className="cart-btn py-3 w-full">
+                Proceed to checkout
+              </button>
+            </Link>
           </div>
         </div>
 
         <div className="sticky-default bg-white font-lora p-2 mb-4 shadow-md lg:hidden">
-          <button className="cart-btn py-3 w-full">Proceed to checkout</button>
+          <Link to="/checkout">
+            <button className="cart-btn py-3 w-full">
+              Proceed to checkout
+            </button>
+          </Link>
         </div>
 
         <div className="mb-4">
