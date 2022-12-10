@@ -6,7 +6,7 @@ import { commerce } from '../../lib/commerce';
 
 import FormInput from './FormInput';
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState('');
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -65,7 +65,8 @@ const AddressForm = ({ checkoutToken }) => {
     setShippingOption(options[0].id);
   };
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = data =>
+    next({ ...data, shippingCountry, shippingSubdivision, shippingCountry });
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
