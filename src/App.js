@@ -137,7 +137,7 @@ function App() {
             />
           }
         />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
       </Routes>
     </Layout>
   );

@@ -1,17 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TiTick } from 'react-icons/ti';
 
+import { commerce } from '../../lib/commerce';
+
+import LoadingSpinner from '../../ui/LoadingSpinner';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 
 const steps = ['Shipping address', 'Payment details'];
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [checkoutToken, setCheckoutToken] = useState(null);
+
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: 'cart',
+        });
+
+        console.log(token);
+
+        setCheckoutToken(token);
+      } catch (error) {}
+    };
+
+    generateToken();
+  }, []);
 
   const Confirmation = () => <div>Confirmation</div>;
 
-  const Form = () => (activeStep === 0 ? <AddressForm /> : <PaymentForm />);
+  const Form = () =>
+    activeStep === 0 ? (
+      <AddressForm checkoutToken={checkoutToken} />
+    ) : (
+      <PaymentForm />
+    );
 
   return (
     <div className="container mx-auto max-w-2xl my-16 mb-20 px-4 font-lora">
@@ -39,7 +64,13 @@ const Checkout = () => {
           ))}
         </div>
 
-        {activeStep === steps.length ? <Confirmation /> : <Form />}
+        {activeStep === steps.length ? (
+          <Confirmation />
+        ) : checkoutToken ? (
+          <Form />
+        ) : (
+          <LoadingSpinner />
+        )}
       </div>
     </div>
   );
