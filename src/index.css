@@ -150,7 +150,8 @@ body {
 }
 
 .cart-btn,
-.cart-link {
+.cart-link,
+.checkout-btn {
   @apply text-center text-white font-semibold bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800;
 }
 
@@ -158,7 +159,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 20;
 }
 
 /* Ionic icons */
@@ -213,4 +214,27 @@ body {
   animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #0000ff transparent transparent transparent;
   @apply block absolute w-6 h-6 m-2;
+}
+
+/* CHECKOUT PAGE */
+.step-item {
+  @apply relative flex flex-col justify-center items-center space-x-2 w-full;
+}
+
+.step-item:not(:first-child)::before {
+  @apply content-[''] border-b border-gray-400 absolute w-full h-[3px] right-2/4 top-1/4 -translate-y-2/4;
+}
+
+.step {
+  @apply w-7 h-7 flex items-center justify-center z-10 relative text-sm bg-gray-400 text-white rounded-full;
+}
+
+.active .step,
+.complete .step {
+  @apply bg-blue-800;
+}
+
+/* Address Form */
+.select {
+  @apply w-full mt-1 text-lg border-b border-gray-400 outline-none transition-all hover:border-black focus:border-blue-700;
 }

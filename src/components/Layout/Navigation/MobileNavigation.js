@@ -43,13 +43,13 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
   return (
     <Fragment>
       <div
-        className={`fixed z-10 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
+        className={`fixed z-30 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
           showNavModal ? 'opacity-100 translate-x-0' : ''
         }`}
         onClick={() => closeNavModalHandler('overflow-y-hidden')}
       />
       <div
-        className={`fixed z-10 top-0 left-0 w-10/12 h-screen px-6 py-4 font-lora bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
+        className={`fixed z-30 top-0 left-0 w-10/12 h-screen px-6 py-4 font-lora bg-slate-100 opacity-0 duration-700 transition-all ease-[cubic-bezier(0.5,1,0.89,1] -translate-x-full lg:hidden ${
           showNavModal ? 'w-10/12 opacity-100 translate-x-0' : ''
         }`}
       >
