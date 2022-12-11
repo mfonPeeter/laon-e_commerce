@@ -11,11 +11,7 @@ const Cart = ({
   emptyCartHandler,
   isLoading,
 }) => {
-  const {
-    line_items: lineItems,
-    subtotal: subTotal,
-    total_items: totalItems,
-  } = cart;
+  const { line_items: lineItems, total_items: totalItems } = cart;
 
   const EmptyCart = () => (
     <div className="w-full text-center px-2 py-28 bg-white rounded">
@@ -101,7 +97,9 @@ const Cart = ({
 
   if (!lineItems) return <LoadingSpinner />;
 
-  const { formatted_with_symbol: formattedWithSymbol } = subTotal;
+  const {
+    subtotal: { formatted_with_symbol: formattedWithSymbol },
+  } = cart;
 
   return (
     <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-8">

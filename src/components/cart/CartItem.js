@@ -6,8 +6,9 @@ const CartItem = ({
   removeFromCartHandler,
   isLoading,
 }) => {
-  const { line_total: lineTotal } = item;
-  const { formatted_with_symbol: formattedWithSymbol } = lineTotal;
+  const {
+    line_total: { formatted_with_symbol: formattedWithSymbol },
+  } = item;
 
   return (
     <div className="p-2 mb-2 bg-white rounded">
