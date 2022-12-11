@@ -181,6 +181,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <select
                 value={shippingCountry}
                 onChange={e => setShippingCountry(e.target.value)}
+                required
                 className="select"
               >
                 {countries.map(country => (
@@ -196,6 +197,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <select
                 value={shippingSubdivision}
                 onChange={e => setShippingSubdivision(e.target.value)}
+                required
                 className="select"
               >
                 {subdivisions.map(subdivision => (
@@ -211,6 +213,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <select
                 value={shippingOption}
                 onChange={e => setShippingOption(e.target.value)}
+                required
                 className="select"
               >
                 {options.map(option => (
