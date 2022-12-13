@@ -17,7 +17,7 @@ const PaymentForm = ({
   onCaptureCheckout,
 }) => {
   const {
-    line_items: lineItems,
+    // line_items: lineItems,
     subtotal: { formatted_with_symbol: formattedWithSymbol },
   } = checkoutToken;
 
@@ -35,13 +35,14 @@ const PaymentForm = ({
       card: cardElement,
     });
 
+    console.log(paymentMethod);
     console.log(error);
 
     if (error) {
       console.log(error);
     } else {
       const orderData = {
-        line_items: lineItems,
+        // line_items: lineItems,
         customer: {
           firstname: shippingData.firstName,
           lastname: shippingData.lastName,

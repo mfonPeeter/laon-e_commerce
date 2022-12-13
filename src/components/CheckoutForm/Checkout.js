@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 
 import { commerce } from '../../lib/commerce';
 
-import LoadingSpinner from '../../ui/LoadingSpinner';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
 const steps = ['Shipping address', 'Payment details'];
 
@@ -24,11 +25,13 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         console.log(token);
 
         setCheckoutToken(token);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     generateToken();
-  }, []);
+  }, [cart.id]);
 
   const nextStep = () => setActiveStep(prevActiveStep => prevActiveStep + 1);
   const backStep = () => setActiveStep(prevActiveStep => prevActiveStep - 1);
@@ -39,7 +42,42 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     nextStep();
   };
 
-  const Confirmation = () => <div>Confirmation</div>;
+  let Confirmation = () =>
+    order.customer ? (
+      <div className="px-8">
+        <h5 className="mb-4 text-lg">
+          Thank you for your purchase, {order.customer.firstname}{' '}
+          {order.customer.lastname}. Please check the spam folder in your mail
+          for your receipt.
+        </h5>
+        <hr />
+        <p className="mt-4">Order ref: {order.customer_reference}</p>
+        <br />
+        <Link
+          to="/home"
+          className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
+        >
+          Back to Home
+        </Link>
+      </div>
+    ) : (
+      <LoadingSpinner />
+    );
+
+  if (error) {
+    Confirmation = () => (
+      <div className="px-8">
+        <h5>Error: {error}</h5>
+        <br />
+        <Link
+          to="/home"
+          className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
+        >
+          Back to Home
+        </Link>
+      </div>
+    );
+  }
 
   const Form = () =>
     activeStep === 0 ? (
@@ -93,22 +131,3 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 };
 
 export default Checkout;
-
-/* <div className="flex justify-between">
-<button
-  onClick={() => {
-    setActiveStep(prevStep => prevStep - 1);
-  }}
-  className="px-4 py-2 uppercase rounded transition-colors outline-blue-900 hover:bg-gray-100"
->
-  Back
-</button>
-<button
-  onClick={() => {
-    setActiveStep(prevStep => prevStep + 1);
-  }}
-  className="checkout-btn px-5 py-2 uppercase"
->
-  Next
-</button>
-</div> */

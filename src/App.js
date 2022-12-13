@@ -101,6 +101,8 @@ function App() {
       console.log(incomingOrder);
       console.log('successful; the capture checkout has been called');
     } catch (error) {
+      console.log(error);
+
       setErrorMessage(error.data.error.message);
     }
   };
