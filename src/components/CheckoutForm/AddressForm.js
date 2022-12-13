@@ -56,13 +56,17 @@ const AddressForm = ({ checkoutToken, next }) => {
     country,
     region = null
   ) => {
-    const options = await commerce.checkout.getShippingOptions(
-      checkoutTokenId,
-      { country, region }
-    );
+    try {
+      const options = await commerce.checkout.getShippingOptions(
+        checkoutTokenId,
+        { country, region }
+      );
 
-    setShippingOptions(options);
-    setShippingOption(options[0].id);
+      setShippingOptions(options);
+      setShippingOption(options[0].id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onSubmit = data =>
@@ -90,6 +94,7 @@ const AddressForm = ({ checkoutToken, next }) => {
         shippingCountry,
         shippingSubdivision
       );
+    // eslint-disable-next-line
   }, [shippingSubdivision]);
 
   return (
