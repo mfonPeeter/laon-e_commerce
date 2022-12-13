@@ -21,7 +21,7 @@ const Product = ({ product, onAddToCart }) => {
           dangerouslySetInnerHTML={{ __html: product.description }}
         />
         <h5 className="mb-4 text-xl font-sans font-bold">
-          {formattedWithSymbol.slice(0, -3)}
+          {formattedWithSymbol}
         </h5>
       </div>
 

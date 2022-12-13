@@ -18,9 +18,7 @@ const CartItem = ({
         </div>
         <div className="w-10/12">
           <h4>{item.name}</h4>
-          <h4 className="font-bold text-lg">
-            {formattedWithSymbol.slice(0, -3)}
-          </h4>
+          <h4 className="font-bold text-lg">{formattedWithSymbol}</h4>
           <p className="text-sm text-gray-700">In Stock</p>
           <p className="text-md font-lora font-semibold uppercase">
             <span className="font-semibold text-blue-800">Laon</span>Express

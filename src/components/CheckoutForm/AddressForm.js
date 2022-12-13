@@ -66,7 +66,14 @@ const AddressForm = ({ checkoutToken, next }) => {
   };
 
   const onSubmit = data =>
-    next({ ...data, shippingCountry, shippingSubdivision, shippingOption });
+    next({
+      ...data,
+      shippingCountry,
+      shippingSubdivision,
+      shippingOption,
+      shippingSubdivisions,
+      shippingOptions,
+    });
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);

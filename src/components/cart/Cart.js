@@ -44,7 +44,7 @@ const Cart = ({
           <div className="flex justify-between mb-2">
             <h3 className="font-semibold">Subtotal ({totalItems} items)</h3>
             <h4 className="text-lg font-bold md:text-xl">
-              {formattedWithSymbol.slice(0, -3)}
+              {formattedWithSymbol}
             </h4>
           </div>
           <p className="-mt-1 text-gray-700 text-sm lg:mb-3">
