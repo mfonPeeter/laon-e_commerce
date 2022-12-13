@@ -1,7 +1,14 @@
 import Checkout from '../components/CheckoutForm/Checkout';
 
-const CheckoutPage = ({ cart }) => {
-  return <Checkout cart={cart} />;
+const CheckoutPage = ({ cart, order, onCaptureCheckout, error }) => {
+  return (
+    <Checkout
+      cart={cart}
+      order={order}
+      onCaptureCheckout={onCaptureCheckout}
+      error={error}
+    />
+  );
 };
 
 export default CheckoutPage;

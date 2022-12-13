@@ -7,7 +7,7 @@ const Review = ({ checkoutToken }) => {
   return (
     <div>
       <h3 className="mb-8 text-xl text-gray-800">Order Summary</h3>
-      <ul>
+      <ul className="mb-4">
         {lineItems.map(product => {
           const {
             line_total: { formatted_with_symbol: formattedWithSymbol },

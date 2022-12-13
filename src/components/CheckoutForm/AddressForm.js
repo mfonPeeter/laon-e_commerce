@@ -66,7 +66,7 @@ const AddressForm = ({ checkoutToken, next }) => {
   };
 
   const onSubmit = data =>
-    next({ ...data, shippingCountry, shippingSubdivision, shippingCountry });
+    next({ ...data, shippingCountry, shippingSubdivision, shippingOption });
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
@@ -83,7 +83,7 @@ const AddressForm = ({ checkoutToken, next }) => {
         shippingCountry,
         shippingSubdivision
       );
-  }, [checkoutToken.id, shippingSubdivision]);
+  }, [shippingSubdivision]);
 
   return (
     <div className="px-8">
@@ -94,28 +94,28 @@ const AddressForm = ({ checkoutToken, next }) => {
             <div>
               <FormInput
                 placeholder="First name"
-                registeredText="firstname"
+                registeredText="firstName"
                 required="Enter your firstname"
                 value={/^[A-Za-z]+$/}
                 message="Name should not contain numbers"
               />
-              {errors.firstname && (
+              {errors.firstName && (
                 <span className="text-red-500 text-sm">
-                  {errors.firstname.message}
+                  {errors.firstName.message}
                 </span>
               )}
             </div>
             <div>
               <FormInput
                 placeholder="Last name"
-                registeredText="lastname"
+                registeredText="lastName"
                 required="Enter your lastname"
                 value={/^[A-Za-z]+$/}
                 message="Name should not contain numbers"
               />
-              {errors.lastname && (
+              {errors.lastName && (
                 <span className="text-red-500 text-sm">
-                  {errors.lastname.message}
+                  {errors.lastName.message}
                 </span>
               )}
             </div>

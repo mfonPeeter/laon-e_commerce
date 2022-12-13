@@ -13,6 +13,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [pageNo, setPageNo] = useState(1);
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
 
@@ -78,6 +80,31 @@ function App() {
     setCart(response);
   };
 
+  const refreshCartHandler = async () => {
+    const newCart = await commerce.cart.refresh();
+
+    setCart(newCart);
+
+    console.log('It seems the refresh has been called');
+  };
+
+  const captureCheckoutHandler = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+
+      setOrder(incomingOrder);
+      refreshCartHandler();
+
+      console.log(incomingOrder);
+      console.log('successful; the capture checkout has been called');
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -137,7 +164,17 @@ function App() {
             />
           }
         />
-        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
+        <Route
+          path="/checkout"
+          element={
+            <CheckoutPage
+              cart={cart}
+              order={order}
+              onCaptureCheckout={captureCheckoutHandler}
+              error={errorMessage}
+            />
+          }
+        />
       </Routes>
     </Layout>
   );
