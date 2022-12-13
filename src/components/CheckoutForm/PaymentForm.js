@@ -17,7 +17,7 @@ const PaymentForm = ({
   onCaptureCheckout,
 }) => {
   const {
-    // line_items: lineItems,
+    line_items: lineItems,
     subtotal: { formatted_with_symbol: formattedWithSymbol },
   } = checkoutToken;
 
@@ -42,7 +42,7 @@ const PaymentForm = ({
       console.log(error);
     } else {
       const orderData = {
-        // line_items: lineItems,
+        line_items: lineItems,
         customer: {
           firstname: shippingData.firstName,
           lastname: shippingData.lastName,
@@ -65,6 +65,8 @@ const PaymentForm = ({
         },
       };
 
+      if (!orderData.shipping.postal_zip_code) return;
+
       onCaptureCheckout(checkoutToken.id, orderData);
 
       nextStep();
@@ -75,11 +77,15 @@ const PaymentForm = ({
     <div className="px-8">
       <Review checkoutToken={checkoutToken} />
       <hr />
-      <h3 className="mb-8 mt-4 text-xl text-gray-800">Payment method</h3>
+      <h3 className="mb-4 mt-4 text-xl text-gray-800">Payment method</h3>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>
           {({ stripe, elements }) => (
             <form onSubmit={e => handleSubmit(e, stripe, elements)}>
+              <p className="mb-8 text-sm">
+                Type <span className="font-bold">424242...</span> consistently
+                as the test numbers for the card details below
+              </p>
               <CardElement />
               <br /> <br />
               <div className="flex justify-between">

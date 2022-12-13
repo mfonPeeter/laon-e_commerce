@@ -237,6 +237,13 @@ const AddressForm = ({ checkoutToken, next }) => {
             </div>
           </div>
           <br />
+          <div className="mb-4 text-sm font-bold">
+            <p>
+              Please ensure that information provided is correct as wrong
+              information will result in an incomplete transaction.
+            </p>
+            <p>Note: Shipping Options for the United States is Domestic.</p>
+          </div>
           <div className="flex justify-between">
             <Link
               to="/cart"
