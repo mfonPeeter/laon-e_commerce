@@ -33,35 +33,37 @@ const PaymentForm = ({
       card: cardElement,
     });
 
-    if (error) return;
-
-    const orderData = {
-      line_items: lineItems,
-      customer: {
-        firstname: shippingData.firstName,
-        lastname: shippingData.lastName,
-        email: shippingData.email,
-      },
-      shipping: {
-        name: 'Primary',
-        street: shippingData.address,
-        town_city: shippingData.city,
-        county_state: shippingData.shippingSubdivision,
-        postal_zip_code: shippingData.zip,
-        country: shippingData.shippingCountry,
-      },
-      fulfillment: { shipping_method: shippingData.shippingOption },
-      payment: {
-        gateway: 'stripe',
-        stripe: {
-          payment_method_id: paymentMethod.id,
+    if (error) {
+      console.log(error);
+    } else {
+      const orderData = {
+        line_items: lineItems,
+        customer: {
+          firstname: shippingData.firstName,
+          lastname: shippingData.lastName,
+          email: shippingData.email,
         },
-      },
-    };
+        shipping: {
+          name: 'Primary',
+          street: shippingData.address,
+          town_city: shippingData.city,
+          county_state: shippingData.shippingSubdivision,
+          postal_zip_code: shippingData.zip,
+          country: shippingData.shippingCountry,
+        },
+        fulfillment: { shipping_method: shippingData.shippingOption },
+        payment: {
+          gateway: 'stripe',
+          stripe: {
+            payment_method_id: paymentMethod.id,
+          },
+        },
+      };
 
-    onCaptureCheckout(checkoutToken.id, orderData);
+      onCaptureCheckout(checkoutToken.id, orderData);
 
-    nextStep();
+      nextStep();
+    }
   };
 
   return (
