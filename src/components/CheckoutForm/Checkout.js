@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 
 import { commerce } from '../../lib/commerce';
@@ -14,6 +14,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
+  const [redirectTimeout, setRedirectTimeout] = useState(null);
+  const [redirectMessage, setRedirectMessage] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const generateToken = async () => {
@@ -23,16 +27,19 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           type: 'cart',
         });
 
-        console.log(token);
-
         setCheckoutToken(token);
       } catch (error) {
-        console.log(error);
+        setRedirectMessage('Redirecting to home...');
+        setRedirectTimeout(
+          setTimeout(() => {
+            navigate('/');
+          }, 5000)
+        );
       }
     };
 
     generateToken();
-  }, [cart.id]);
+  }, [cart.id, navigate]);
 
   const nextStep = () => setActiveStep(prevActiveStep => prevActiveStep + 1);
   const backStep = () => setActiveStep(prevActiveStep => prevActiveStep - 1);
@@ -54,12 +61,15 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         <hr />
         <p className="mt-4">Order ref: {order.customer_reference}</p>
         <br />
-        <Link
-          to="/home"
-          className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
-        >
-          Back to Home
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link
+            to="/home"
+            className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
+          >
+            Back to Home
+          </Link>
+          <p>{redirectMessage}</p>
+        </div>
       </div>
     ) : (
       <LoadingSpinner />
@@ -72,6 +82,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         <br />
         <Link
           to="/home"
+          onClick={() => clearTimeout(redirectTimeout)}
           className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
         >
           Back to Home

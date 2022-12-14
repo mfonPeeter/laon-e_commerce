@@ -24,18 +24,24 @@ function App() {
   const page = queryParams.get('page');
 
   const fetchProducts = useCallback(async () => {
-    const response = await commerce.products.list({
-      limit: 20,
-      page: pageNo,
-    });
+    try {
+      const response = await commerce.products.list({
+        limit: 20,
+        page: pageNo,
+      });
 
-    const { data } = response;
-    const { current_page: currentPage } = response.meta.pagination;
+      const { data } = response;
+      const { current_page: currentPage } = response.meta.pagination;
 
-    if (!page && currentPage !== 1) return;
-    if (+page && currentPage !== +page) return;
+      if (!page && currentPage !== 1) return;
+      if (+page && currentPage !== +page) return;
 
-    setProducts(data);
+      setProducts(data);
+    } catch (error) {
+      setErrorMessage(
+        'Error: No internet connection. Please check your internet connection.'
+      );
+    }
   }, [pageNo, page]);
 
   const fetchCart = async () => {
@@ -84,8 +90,6 @@ function App() {
     const newCart = await commerce.cart.refresh();
 
     setCart(newCart);
-
-    console.log('It seems the refresh has been called');
   };
 
   const captureCheckoutHandler = async (checkoutTokenId, newOrder) => {
@@ -97,12 +101,7 @@ function App() {
 
       setOrder(incomingOrder);
       refreshCartHandler();
-
-      console.log(incomingOrder);
-      console.log('successful; the capture checkout has been called');
     } catch (error) {
-      console.log(error);
-
       setErrorMessage(error.data.error.message);
     }
   };
@@ -111,8 +110,6 @@ function App() {
     fetchProducts();
     fetchCart();
   }, [fetchProducts]);
-
-  console.log(cart);
 
   const decreasePageNoHandler = useCallback(() => {
     if (pageNo <= 1) return;
@@ -151,6 +148,7 @@ function App() {
               disableDecreaseButton={disableDecreaseButton}
               disableIncreaseButton={disableIncreaseButton}
               isLoading={isLoading}
+              error={errorMessage}
             />
           }
         />
@@ -163,6 +161,7 @@ function App() {
               removeFromCartHandler={removeFromCartHandler}
               emptyCartHandler={emptyCartHandler}
               isLoading={isLoading}
+              error={errorMessage}
             />
           }
         />

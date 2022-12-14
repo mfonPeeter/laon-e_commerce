@@ -12,6 +12,7 @@ const ProductsPage = ({
   disableDecreaseButton,
   disableIncreaseButton,
   isLoading,
+  error,
 }) => {
   return (
     <Fragment>
@@ -19,6 +20,7 @@ const ProductsPage = ({
         products={products}
         onAddToCart={onAddToCart}
         isLoading={isLoading}
+        error={error}
       />
       <Pagination
         decreasePageNoHandler={decreasePageNoHandler}

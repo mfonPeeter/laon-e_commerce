@@ -84,7 +84,7 @@ const Cart = ({
         </div>
       </div>
 
-      <div className="mb-4 px-2 md:px-0">
+      <div className="mb-6 px-2 md:px-0">
         <button
           onClick={emptyCartHandler}
           className="cart-btn w-full p-2 sm:w-52"

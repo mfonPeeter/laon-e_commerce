@@ -56,17 +56,13 @@ const AddressForm = ({ checkoutToken, next }) => {
     country,
     region = null
   ) => {
-    try {
-      const options = await commerce.checkout.getShippingOptions(
-        checkoutTokenId,
-        { country, region }
-      );
+    const options = await commerce.checkout.getShippingOptions(
+      checkoutTokenId,
+      { country, region }
+    );
 
-      setShippingOptions(options);
-      setShippingOption(options[0].id);
-    } catch (error) {
-      console.log(error);
-    }
+    setShippingOptions(options);
+    setShippingOption(options[0].id);
   };
 
   const onSubmit = data =>
@@ -247,7 +243,7 @@ const AddressForm = ({ checkoutToken, next }) => {
           <div className="flex justify-between">
             <Link
               to="/cart"
-              className="inline-block px-4 py-2 font-semibold text-gray-700 uppercase rounded transition-colors outline-blue-900 hover:bg-gray-100"
+              className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
             >
               Back to cart
             </Link>
