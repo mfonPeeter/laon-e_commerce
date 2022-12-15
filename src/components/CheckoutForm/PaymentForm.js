@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import {
   Elements,
   ElementsConsumer,
@@ -6,16 +8,13 @@ import {
 import { loadStripe } from '@stripe/stripe-js';
 
 import Review from './Review';
+import CartContext from '../../store/cart-context';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({
-  checkoutToken,
-  shippingData,
-  backStep,
-  nextStep,
-  onCaptureCheckout,
-}) => {
+const PaymentForm = ({ checkoutToken, shippingData, backStep, nextStep }) => {
+  const cartCtx = useContext(CartContext);
+
   const {
     line_items: lineItems,
     subtotal: { formatted_with_symbol: formattedWithSymbol },
@@ -60,7 +59,7 @@ const PaymentForm = ({
         },
       };
 
-      onCaptureCheckout(checkoutToken.id, orderData);
+      cartCtx.captureCheckoutHandler(checkoutToken.id, orderData);
 
       nextStep();
     }

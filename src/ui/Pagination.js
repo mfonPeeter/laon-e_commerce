@@ -1,28 +1,28 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import LeftArrow from '../components/Products/ProductsIcon/ArrowIcon';
 import RightArrow from '../components/Products/ProductsIcon/ArrowIcon';
 
-const Pagination = ({
-  decreasePageNoHandler,
-  increasePageNoHandler,
-  disableDecreaseButton,
-  disableIncreaseButton,
-}) => {
+import CartContext from '../store/cart-context';
+
+const Pagination = () => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <div className="flex items-center justify-center space-x-4 mb-6">
       <Link
         to="/products"
         className={`page-link-btn group ${
-          disableDecreaseButton
+          cartCtx.disableDecreaseButton
             ? 'pointer-events-none border-gray-400'
             : 'border-blue-700'
         }`}
-        onClick={decreasePageNoHandler}
+        onClick={cartCtx.decreasePageNoHandler}
       >
         <button
           className={`transition-colors group-hover:text-white group-active:text-white ${
-            disableDecreaseButton ? 'text-gray-400' : 'text-blue-800'
+            cartCtx.disableDecreaseButton ? 'text-gray-400' : 'text-blue-800'
           }`}
         >
           <LeftArrow />
@@ -32,11 +32,11 @@ const Pagination = ({
       <Link
         to="/products"
         className={`page-link ${
-          disableDecreaseButton
+          cartCtx.disableDecreaseButton
             ? 'pointer-events-none bg-blue-700 text-white'
             : ''
         }`}
-        onClick={decreasePageNoHandler}
+        onClick={cartCtx.decreasePageNoHandler}
       >
         1
       </Link>
@@ -44,11 +44,11 @@ const Pagination = ({
       <Link
         to="/products?page=2"
         className={`page-link ${
-          disableIncreaseButton
+          cartCtx.disableIncreaseButton
             ? 'pointer-events-none bg-blue-700 text-white'
             : ''
         }`}
-        onClick={increasePageNoHandler}
+        onClick={cartCtx.increasePageNoHandler}
       >
         2
       </Link>
@@ -56,15 +56,15 @@ const Pagination = ({
       <Link
         to="/products?page=2"
         className={`page-link-btn group ${
-          disableIncreaseButton
+          cartCtx.disableIncreaseButton
             ? 'pointer-events-none border-gray-400'
             : 'border-blue-700'
         }`}
-        onClick={increasePageNoHandler}
+        onClick={cartCtx.increasePageNoHandler}
       >
         <button
           className={`transition-colors group-hover:text-white group-active:text-white rotate-180 ${
-            disableIncreaseButton ? 'text-gray-400' : 'text-blue-800'
+            cartCtx.disableIncreaseButton ? 'text-gray-400' : 'text-blue-800'
           }`}
         >
           <RightArrow />

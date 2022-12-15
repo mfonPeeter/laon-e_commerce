@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12T-pro-specs.webp';
-import img2 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-Pro-specs.png';
+import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12t-pro-specs.webp';
+import img2 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-pro-specs.png';
 import img3 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-pro-specs.png';
 import img4 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-specs.png';
 import img5 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10s-specs.png';

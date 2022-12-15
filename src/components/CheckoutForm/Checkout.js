@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 
@@ -8,9 +8,11 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
+import CartContext from '../../store/cart-context';
+
 const steps = ['Shipping address', 'Payment details'];
 
-const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
@@ -19,11 +21,13 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   const navigate = useNavigate();
 
+  const cartCtx = useContext(CartContext);
+
   useEffect(() => {
     const generateToken = async () => {
       try {
-        if (!cart.id) return;
-        const token = await commerce.checkout.generateToken(cart.id, {
+        if (!cartCtx.cart.id) return;
+        const token = await commerce.checkout.generateToken(cartCtx.cart.id, {
           type: 'cart',
         });
 
@@ -39,7 +43,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     };
 
     generateToken();
-  }, [cart.id, navigate]);
+  }, [cartCtx.cart.id, navigate]);
 
   const nextStep = () => setActiveStep(prevActiveStep => prevActiveStep + 1);
   const backStep = () => setActiveStep(prevActiveStep => prevActiveStep - 1);
@@ -51,15 +55,15 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   };
 
   let Confirmation = () =>
-    order.customer ? (
+    cartCtx.order.customer ? (
       <div className="px-8">
         <h5 className="mb-4 text-lg">
-          Thank you for your purchase, {order.customer.firstname}{' '}
-          {order.customer.lastname}. Please check the spam folder in your mail
-          for your receipt.
+          Thank you for your purchase, {cartCtx.order.customer.firstname}{' '}
+          {cartCtx.order.customer.lastname}. Please check the spam folder in
+          your mail for your receipt.
         </h5>
         <hr />
-        <p className="mt-4">Order ref: {order.customer_reference}</p>
+        <p className="mt-4">Order ref: {cartCtx.order.customer_reference}</p>
         <br />
         <div className="flex items-center justify-between">
           <Link
@@ -75,10 +79,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <LoadingSpinner />
     );
 
-  if (error) {
+  if (cartCtx.errorMessage) {
     Confirmation = () => (
       <div className="px-8">
-        <h5>Error: {error}</h5>
+        <h5>Error: {cartCtx.errorMessage}</h5>
         <br />
         <Link
           to="/home"
@@ -100,7 +104,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         shippingData={shippingData}
         backStep={backStep}
         nextStep={nextStep}
-        onCaptureCheckout={onCaptureCheckout}
       />
     );
 

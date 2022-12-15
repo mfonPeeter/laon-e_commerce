@@ -1,4 +1,10 @@
-const Product = ({ product, onAddToCart }) => {
+import { useContext } from 'react';
+
+import CartContext from '../../store/cart-context';
+
+const Product = ({ product }) => {
+  const cartCtx = useContext(CartContext);
+
   const { formatted_with_symbol: formattedWithSymbol } = product.price;
 
   return (
@@ -26,7 +32,7 @@ const Product = ({ product, onAddToCart }) => {
       </div>
 
       <button
-        onClick={() => onAddToCart(product.id, 1)}
+        onClick={() => cartCtx.addToCartHandler(product.id, 1)}
         className="w-full py-2 text-sm text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800 lg:opacity-0 lg:group-hover:opacity-100"
       >
         Add to cart

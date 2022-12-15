@@ -1,11 +1,11 @@
-import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
+import { useContext } from 'react';
 
-const CartItem = ({
-  item,
-  updateCartQtyHandler,
-  removeFromCartHandler,
-  isLoading,
-}) => {
+import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
+import CartContext from '../../store/cart-context';
+
+const CartItem = ({ item }) => {
+  const cartCtx = useContext(CartContext);
+
   const {
     line_total: { formatted_with_symbol: formattedWithSymbol },
   } = item;
@@ -33,7 +33,7 @@ const CartItem = ({
       <div className="flex items-center justify-between">
         <div className="flex">
           <button
-            onClick={() => removeFromCartHandler(item.id)}
+            onClick={() => cartCtx.removeFromCartHandler(item.id)}
             className="flex items-center space-x-1 px-2 py-1 rounded first-letter:transition-colors outline-blue-900 hover:bg-blue-200"
           >
             <ion-icon name="trash" id="delete-icon"></ion-icon>
@@ -45,7 +45,9 @@ const CartItem = ({
 
         <div className="flex items-center space-x-10 lg:space-x-6">
           <button
-            onClick={() => updateCartQtyHandler(item.id, item.quantity - 1)}
+            onClick={() =>
+              cartCtx.updateCartQtyHandler(item.id, item.quantity - 1)
+            }
             className={`w-8 h-8 text-white text-4xl rounded transition-colors ${
               item.quantity === 1
                 ? 'bg-blue-300 pointer-events-none'
@@ -56,9 +58,15 @@ const CartItem = ({
               -
             </span>
           </button>
-          {isLoading ? <SmallLoadingSpinner /> : <span>{item.quantity}</span>}
+          {cartCtx.isLoading ? (
+            <SmallLoadingSpinner />
+          ) : (
+            <span>{item.quantity}</span>
+          )}
           <button
-            onClick={() => updateCartQtyHandler(item.id, item.quantity + 1)}
+            onClick={() =>
+              cartCtx.updateCartQtyHandler(item.id, item.quantity + 1)
+            }
             className=" w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800"
           >
             <span className="flex items-end justify-center w-full h-full">

@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import useNavigation from '../../../hooks/use-navigation';
 import useModal from '../../../hooks/use-modal';
@@ -11,8 +11,12 @@ import MobileNavigation from './MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 import MenuBar from './NavigationIcons/MenuBar';
 
-const Navigation = ({ totalItems }) => {
+import CartContext from '../../../store/cart-context';
+
+const Navigation = () => {
   const location = useLocation();
+  const cartCtx = useContext(CartContext);
+
   const {
     showXiaomiNavSum,
     showRedmiNavSum,
@@ -82,7 +86,7 @@ const Navigation = ({ totalItems }) => {
               <CartIcon />
               <span>Cart</span>
               <span className="absolute top-3 right-8 flex items-center justify-center text-xs w-4 h-4 text-white bg-blue-800 rounded-full">
-                {totalItems > 0 ? totalItems : 0}
+                {cartCtx.totalItems > 0 ? cartCtx.totalItems : 0}
               </span>
             </Link>
           </div>

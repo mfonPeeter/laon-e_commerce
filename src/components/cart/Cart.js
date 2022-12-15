@@ -1,20 +1,20 @@
+import { useContext } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import CartItem from './CartItem';
 import CartIcon from '../Layout/Navigation/NavigationIcons/CartIcon';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
-const Cart = ({
-  cart,
-  updateCartQtyHandler,
-  removeFromCartHandler,
-  emptyCartHandler,
-  isLoading,
-}) => {
-  const { line_items: lineItems, total_items: totalItems } = cart;
+import CartContext from '../../store/cart-context';
+
+const Cart = () => {
+  const cartCtx = useContext(CartContext);
+
+  const { line_items: lineItems, total_items: totalItems } = cartCtx.cart;
 
   const EmptyCart = () => (
-    <div className="w-full text-center px-2 py-28 bg-white rounded">
+    <div className="w-full text-center px-2 py-28 mb-6 bg-white rounded">
       <div className="flex justify-center mb-4">
         <div className="w-24 h-24 p-3 bg-gray-200 text-blue-700 rounded-full">
           <CartIcon />
@@ -73,12 +73,7 @@ const Cart = ({
         <div className="mb-4">
           {lineItems.map(item => (
             <div key={item.id}>
-              <CartItem
-                item={item}
-                updateCartQtyHandler={updateCartQtyHandler}
-                removeFromCartHandler={removeFromCartHandler}
-                isLoading={isLoading}
-              />
+              <CartItem item={item} />
             </div>
           ))}
         </div>
@@ -86,7 +81,7 @@ const Cart = ({
 
       <div className="mb-6 px-2 md:px-0">
         <button
-          onClick={emptyCartHandler}
+          onClick={cartCtx.emptyCartHandler}
           className="cart-btn w-full p-2 sm:w-52"
         >
           Empty cart
@@ -99,7 +94,7 @@ const Cart = ({
 
   const {
     subtotal: { formatted_with_symbol: formattedWithSymbol },
-  } = cart;
+  } = cartCtx.cart;
 
   return (
     <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-8">

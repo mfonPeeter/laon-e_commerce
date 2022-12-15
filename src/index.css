@@ -8,7 +8,8 @@ body {
 
 /* HOMEPAGE */
 /* Global Container */
-.homepage-container {
+.homepage-container,
+.products-specs-container {
   @apply container mx-auto max-w-screen-xl px-6 md:px-10;
 }
 

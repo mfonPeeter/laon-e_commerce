@@ -5,7 +5,7 @@ import Navigation from './Navigation/Navigation';
 const Layout = props => {
   return (
     <Fragment>
-      <Navigation totalItems={props.totalItems} />
+      <Navigation />
       <main>{props.children}</main>
     </Fragment>
   );
