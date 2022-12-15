@@ -5,7 +5,7 @@ import email from '../../assets/social-icons/icon-email.svg';
 
 const ContactUs = () => {
   return (
-    <footer className="py-20 text-white bg-black opacity-90">
+    <footer className="py-20 text-sm text-white bg-black opacity-90">
       <div className="homepage-container flex flex-col items-center space-y-10 mb-10 sm:flex-row sm:justify-around sm:space-y-0">
         <div>
           <h3 className="text-xl font-semibold uppercase">
