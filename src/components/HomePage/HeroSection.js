@@ -42,7 +42,7 @@ const HeroSection = () => {
         <p className="mb-6 max-w-sm mx-auto font-raleway font-semibold md:mx-0">
           Discounts are given every last week of the month. Don't miss out!
         </p>
-        <Link to="/products" className="products-link">
+        <Link to="/products" className="products-link px-4">
           All Products &rarr;
         </Link>
       </div>

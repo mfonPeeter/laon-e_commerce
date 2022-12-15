@@ -141,7 +141,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
 
           <Link
             to="/products"
-            className="products-link relative z-10 text-center md:w-36"
+            className="products-link px-4 relative z-10 text-center md:w-36"
             onClick={() => closeNavModalHandler('overflow-y-hidden')}
           >
             All Products

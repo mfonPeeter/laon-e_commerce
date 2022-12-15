@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +32,7 @@ const Navigation = ({ totalItems }) => {
 
   return (
     <div
-      className={`px-6 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] ${
+      className={`px-3 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] sm:px-6 ${
         location.pathname === '/checkout' && 'sticky-default'
       }`}
     >
@@ -72,7 +71,7 @@ const Navigation = ({ totalItems }) => {
               />
             </ul>
 
-            <Link to="/products" className="products-link">
+            <Link to="/products" className="products-link px-2 sm:px-4">
               All Products
             </Link>
 
