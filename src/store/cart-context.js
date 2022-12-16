@@ -9,6 +9,7 @@ const CartContext = React.createContext({
   totalItems: 0,
   disableDecreaseButton: true,
   disableIncreaseButton: false,
+  retrieveProductsHandler: productId => {},
   addToCartHandler: (productId, quantity) => {},
   updateCartQtyHandler: (productId, quantity) => {},
   removeFromCartHandler: productId => {},

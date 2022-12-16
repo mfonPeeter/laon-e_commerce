@@ -7,7 +7,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import Layout from './components/Layout/Layout';
 
 import CartProvider from './store/CartProvider';
-// import Xiaomi12TPro from './components/ProductsSpecs/Xiaomi12TPro';
+import Xiaomi12TPro from './components/ProductsSpecs/Xiaomi12TPro';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="/products/*" element={<ProductsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          {/* <Route path="/products-specs" element={<Xiaomi12TPro />} /> */}
+          <Route path="/products-specs" element={<Xiaomi12TPro />} />
         </Routes>
       </Layout>
     </CartProvider>

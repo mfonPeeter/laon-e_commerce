@@ -9,6 +9,8 @@ import CartContext from '../../store/cart-context';
 const Products = () => {
   const cartCtx = useContext(CartContext);
 
+  console.log(cartCtx.products);
+
   return (
     <main>
       {cartCtx.isLoading && (

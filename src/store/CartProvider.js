@@ -41,6 +41,14 @@ const CartProvider = props => {
     }
   }, [pageNo, page]);
 
+  // Retrieving products
+  const retrieveProductsHandler = async productId => {
+    const products = await commerce.products.retrieve(productId);
+
+    console.log(products);
+    console.log(productId);
+  };
+
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
   };
@@ -52,6 +60,8 @@ const CartProvider = props => {
     if (response) setIsLoading(false);
 
     setCart(response);
+
+    retrieveProductsHandler(productId);
   };
 
   const { total_items: totalItems } = cart;
@@ -138,6 +148,7 @@ const CartProvider = props => {
     totalItems,
     disableDecreaseButton,
     disableIncreaseButton,
+    retrieveProductsHandler,
     addToCartHandler,
     updateCartQtyHandler,
     removeFromCartHandler,
