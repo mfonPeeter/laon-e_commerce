@@ -17,9 +17,9 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/products/*" element={<ProductsPage />} />
+          <Route path="/products/:productId" element={<Xiaomi12TPro />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/products-specs" element={<Xiaomi12TPro />} />
         </Routes>
       </Layout>
     </CartProvider>

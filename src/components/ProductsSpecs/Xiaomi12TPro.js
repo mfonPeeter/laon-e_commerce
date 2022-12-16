@@ -1,11 +1,31 @@
+import { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import xiaomiImg from '../../assets/products-specs/mi-phones-specs/xiaomi-12t-pro-specs.webp';
 import blueImg from '../../assets/products-specs/mi-phones-specs/blue-color.webp';
 import silverImg from '../../assets/products-specs/mi-phones-specs/silver-color.webp';
 import blackImg from '../../assets/products-specs/mi-phones-specs/black-color.webp';
 
 import Footer from '../HomePage/Footer';
+import CartContext from '../../store/cart-context';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
 const Xiaomi12TPro = () => {
+  const cartCtx = useContext(CartContext);
+
+  const params = useParams();
+
+  const { attribute, retrieveProductsHandler } = cartCtx;
+
+  // Call the function when page is refreshed
+  useEffect(() => {
+    retrieveProductsHandler(params.productId);
+  }, [retrieveProductsHandler, params.productId]);
+
+  if (Object.keys(attribute).length === 0) return <LoadingSpinner />;
+
+  console.log(cartCtx.attribute);
+
   return (
     <div className="mt-6 bg-white">
       <div className=" pb-6 bg-gray-100">
@@ -35,7 +55,7 @@ const Xiaomi12TPro = () => {
 
       <div className="products-specs-container mb-10">
         <div className="flex space-x-48 mb-8">
-          <h5 className="text-3xl font-semibold">Processor</h5>
+          <h5 className="text-3xl font-semibold">processor</h5>
           <div>
             <p className="text-lg font-semibold">Snapdragon® 8+ Gen 1</p>
             <p>4nm power-efficient manufacturing process</p>
@@ -56,7 +76,9 @@ const Xiaomi12TPro = () => {
         <hr />
 
         <div className="flex space-x-28 my-8">
-          <h5 className="text-3xl font-semibold ">Storage & RAM</h5>
+          <h5 className="text-3xl font-semibold ">
+            {attribute.attributes[0].value}
+          </h5>
           <div>
             <p className="mb-1 text-lg font-semibold">
               8GB+128GB | 8GB+256GB | 12GB+256GB

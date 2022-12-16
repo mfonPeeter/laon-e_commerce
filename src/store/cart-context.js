@@ -4,6 +4,7 @@ const CartContext = React.createContext({
   isLoading: false,
   errorMessage: '',
   products: [],
+  attribute: {},
   cart: {},
   order: {},
   totalItems: 0,

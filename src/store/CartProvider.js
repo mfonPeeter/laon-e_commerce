@@ -8,6 +8,7 @@ import CartContext from './cart-context';
 const CartProvider = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [attribute, setAttribute] = useState({});
   const [pageNo, setPageNo] = useState(1);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -41,13 +42,11 @@ const CartProvider = props => {
     }
   }, [pageNo, page]);
 
-  // Retrieving products
-  const retrieveProductsHandler = async productId => {
+  const retrieveProductsHandler = useCallback(async productId => {
     const products = await commerce.products.retrieve(productId);
 
-    console.log(products);
-    console.log(productId);
-  };
+    setAttribute(products);
+  }, []);
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -60,8 +59,6 @@ const CartProvider = props => {
     if (response) setIsLoading(false);
 
     setCart(response);
-
-    retrieveProductsHandler(productId);
   };
 
   const { total_items: totalItems } = cart;
@@ -143,6 +140,7 @@ const CartProvider = props => {
     isLoading,
     errorMessage,
     products,
+    attribute,
     cart,
     order,
     totalItems,
