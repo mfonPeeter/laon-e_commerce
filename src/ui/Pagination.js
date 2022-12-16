@@ -12,6 +12,7 @@ const Pagination = () => {
   return (
     <div className="flex items-center justify-center space-x-4 mb-6">
       <Link
+        reloadDocument
         to="/products"
         className={`page-link-btn group ${
           cartCtx.disableDecreaseButton
@@ -30,6 +31,7 @@ const Pagination = () => {
       </Link>
 
       <Link
+        reloadDocument
         to="/products"
         className={`page-link ${
           cartCtx.disableDecreaseButton
@@ -42,6 +44,7 @@ const Pagination = () => {
       </Link>
 
       <Link
+        reloadDocument
         to="/products?page=2"
         className={`page-link ${
           cartCtx.disableIncreaseButton
@@ -54,6 +57,7 @@ const Pagination = () => {
       </Link>
 
       <Link
+        reloadDocument
         to="/products?page=2"
         className={`page-link-btn group ${
           cartCtx.disableIncreaseButton
