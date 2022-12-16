@@ -5,9 +5,9 @@ import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Layout from './components/Layout/Layout';
+import ProductsSpecs from './components/Products/ProductsSpecs';
 
 import CartProvider from './store/CartProvider';
-import Xiaomi12TPro from './components/ProductsSpecs/Xiaomi12TPro';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/products/*" element={<ProductsPage />} />
-          <Route path="/products/:productId" element={<Xiaomi12TPro />} />
+          <Route path="/products/:productId" element={<ProductsSpecs />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>

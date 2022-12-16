@@ -10,7 +10,7 @@ import Footer from '../HomePage/Footer';
 import CartContext from '../../store/cart-context';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
-const Xiaomi12TPro = () => {
+const ProductsSpecs = () => {
   const cartCtx = useContext(CartContext);
 
   const params = useParams();
@@ -115,4 +115,4 @@ const Xiaomi12TPro = () => {
   );
 };
 
-export default Xiaomi12TPro;
+export default ProductsSpecs;
