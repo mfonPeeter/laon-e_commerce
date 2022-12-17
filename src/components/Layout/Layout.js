@@ -8,7 +8,7 @@ const Layout = props => {
 
   return (
     <Fragment>
-      {!location.pathname === '/path' && <Navigation />}
+      {location.pathname !== '/auth' && <Navigation />}
       <main>{props.children}</main>
     </Fragment>
   );
