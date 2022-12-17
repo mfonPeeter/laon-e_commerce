@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import laonLogo from '../../assets/laon-top-logo.png';
+import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -16,8 +19,44 @@ const AuthForm = () => {
     setIsLogin(prevState => !prevState);
   };
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    const { email, password } = data;
+
+    setIsLoading(true);
+
+    try {
+      if (isLogin) {
+      } else {
+        const res = await fetch(
+          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDOuliHGNkGaDF7oF2cPQchxui_Cu5wdUM',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              email,
+              password,
+              returnSecureToken: true,
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+
+        setIsLoading(false);
+        console.log(res);
+
+        if (res.ok) {
+          // ...
+        } else {
+          const data = await res.json();
+          console.log(data);
+          setErrorMessage('Authentication failed');
+          if (data && data.error && data.error.message) {
+            setErrorMessage(data.error.message);
+          }
+        }
+      }
+    } catch (error) {}
   };
 
   return (
@@ -34,12 +73,17 @@ const AuthForm = () => {
         {isLogin ? 'Login' : 'Sign Up'}
       </h3>
 
+      {errorMessage && (
+        <p className="mb-4 text-red-500 text-center">Error: {errorMessage}</p>
+      )}
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center justify-center space-y-6 mb-6 text-center"
       >
         <div className="auth-form-input-container">
           <input
+            type="text"
             placeholder="E-mail"
             className={`auth-form-input ${
               errors.email ? 'auth-form-input-error' : 'auth-form-input-correct'
@@ -60,9 +104,12 @@ const AuthForm = () => {
         </div>
         <div className="auth-form-input-container">
           <input
+            type="password"
             placeholder="Password"
             className={`auth-form-input ${
-              errors.email ? 'auth-form-input-error' : 'auth-form-input-correct'
+              errors.password
+                ? 'auth-form-input-error'
+                : 'auth-form-input-correct'
             }`}
             {...register('password', { required: 'Enter your password' })}
           />
@@ -72,9 +119,12 @@ const AuthForm = () => {
             </span>
           )}
         </div>
-        <button className="auth-btn py-3 w-3/4 text-lg md:w-1/2 lg:w-1/3">
-          {isLogin ? 'Login' : 'Create Account'}
-        </button>
+        {!isLoading && (
+          <button className="auth-btn py-3 w-3/4 text-lg md:w-1/2 lg:w-1/3">
+            {isLogin ? 'Login' : 'Create Account'}
+          </button>
+        )}
+        {isLoading && <SmallLoadingSpinner />}
       </form>
 
       <div className="flex justify-center mb-4">
