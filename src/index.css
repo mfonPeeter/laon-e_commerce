@@ -152,7 +152,8 @@ body {
 
 .cart-btn,
 .cart-link,
-.checkout-btn {
+.checkout-btn,
+.auth-btn {
   @apply text-center text-white font-semibold bg-blue-700 rounded-md outline-blue-900 shadow-xl transition-colors hover:bg-blue-800;
 }
 
@@ -238,4 +239,25 @@ body {
 /* Address Form */
 .select {
   @apply w-full mt-1 text-lg border-b border-gray-400 outline-none transition-all hover:border-black focus:border-blue-700;
+}
+
+/* AUTH PAGE */
+#laon-top-logo {
+  filter: sepia(100%) hue-rotate(190deg) saturate(900%);
+}
+
+.auth-form-input-container {
+  @apply flex flex-col items-center space-y-1 w-3/4 md:w-1/2 lg:w-1/3;
+}
+
+.auth-form-input {
+  @apply w-full p-3 text-lg bg-transparent border rounded;
+}
+
+.auth-form-input-correct {
+  @apply text-gray-800 border-gray-400 outline-blue-800 caret-blue-700;
+}
+
+.auth-form-input-error {
+  @apply placeholder-red-400 border-red-500 outline-red-500 caret-red-500;
 }
