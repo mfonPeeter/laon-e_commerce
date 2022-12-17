@@ -36,7 +36,7 @@ const Navigation = () => {
 
   return (
     <div
-      className={`px-3 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] sm:px-6 ${
+      className={`px-6 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] ${
         location.pathname === '/checkout' && 'sticky-default'
       }`}
     >
@@ -59,7 +59,7 @@ const Navigation = () => {
         </div>
 
         {location.pathname !== '/checkout' && (
-          <div className="flex space-x-4 items-center sm:space-x-12">
+          <div className="flex space-x-4 items-center sm:space-x-10">
             <ul className="z-10 hidden space-x-12 items-center lg:flex">
               <NavigationList
                 text="Xiaomi Phones"
@@ -75,8 +75,15 @@ const Navigation = () => {
               />
             </ul>
 
-            <Link to="/products" className="products-link px-2 sm:px-4">
+            <Link
+              to="/products"
+              className="hidden products-link sm:inline-block"
+            >
               All Products
+            </Link>
+
+            <Link to="/auth" className="transition-colors hover:text-blue-700">
+              Login
             </Link>
 
             <Link

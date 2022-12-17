@@ -53,7 +53,12 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
           showNavModal ? 'w-10/12 opacity-100 translate-x-0' : ''
         }`}
       >
-        <h2 className="mb-10 text-blue-700 font-bold text-4xl">Laon</h2>
+        <div className="flex items-center justify-between mb-10 font-semibold">
+          <h2 className="text-blue-700 font-bold text-4xl">Laon</h2>
+          <Link to="/auth" className="transition-colors hover:text-blue-700">
+            Login
+          </Link>
+        </div>
         <button
           className="absolute top-4 -right-[12%] text-white md:-right-[7%]"
           onClick={() => closeNavModalHandler('overflow-y-hidden')}
@@ -141,7 +146,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
 
           <Link
             to="/products"
-            className="products-link px-4 relative z-10 text-center md:w-36"
+            className="products-link inline-block relative z-10 text-center md:w-36"
             onClick={() => closeNavModalHandler('overflow-y-hidden')}
           >
             All Products

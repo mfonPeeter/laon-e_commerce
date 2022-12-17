@@ -15,7 +15,7 @@ body {
 
 /* Links */
 .products-link {
-  @apply inline-block py-2 text-white font-bold rounded bg-blue-700 transition-colors hover:bg-blue-800 sm:text-lg;
+  @apply px-4 py-2 text-white font-bold rounded bg-blue-700 transition-colors hover:bg-blue-800 sm:text-lg;
 }
 
 /* Star Products */
