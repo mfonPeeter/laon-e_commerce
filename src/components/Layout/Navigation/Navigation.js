@@ -66,7 +66,7 @@ const Navigation = () => {
         </div>
 
         {location.pathname !== '/checkout' && (
-          <div className="flex space-x-4 items-center sm:space-x-10">
+          <div className="flex space-x-4 items-center sm:space-x-4 md:space-x-8">
             <ul className="z-10 hidden space-x-12 items-center lg:flex">
               <NavigationList
                 text="Xiaomi Phones"

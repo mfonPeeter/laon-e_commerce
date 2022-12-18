@@ -62,7 +62,12 @@ const AuthForm = () => {
       }
 
       const data = await res.json();
-      authCtx.login(data.idToken);
+      // Construct a new date object in milliseconds
+      // Adding expires time in milliseconds to timestamp in milliseconds
+      const expirationTime = new Date(
+        new Date().getTime() + +data.expiresIn * 1000
+      );
+      authCtx.login(data.idToken, expirationTime.toISOString());
 
       setErrorMessage('');
 
