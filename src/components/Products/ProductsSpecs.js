@@ -20,8 +20,6 @@ const ProductsSpecs = () => {
 
   if (Object.keys(attribute).length === 0) return <LoadingSpinner />;
 
-  console.log(cartCtx.attribute);
-
   return (
     <div className="bg-white">
       <div className="sticky-default py-4 bg-gray-100">
@@ -100,10 +98,6 @@ const ProductsSpecs = () => {
           text={attribute.attributes[17].value}
         />
         <ProductSpecsDetails
-          heading={attribute.attributes[18].name}
-          text={attribute.attributes[18].value}
-        />
-        <ProductSpecsDetails
           heading={attribute.attributes[19].name}
           text={attribute.attributes[19].value}
         />
@@ -151,12 +145,16 @@ const ProductsSpecs = () => {
           heading={attribute.attributes[30].name}
           text={attribute.attributes[30].value}
         />
-        {attribute.attributes[31].value && (
+        <ProductSpecsDetails
+          heading={attribute.attributes[31].name}
+          text={attribute.attributes[31].value}
+        />
+        {attribute.attributes[18].value && (
           <div className="flex space-x-6 mb-8">
             <h5 className="w-1/3 text-xl font-semibold sm:text-2xl">
-              {attribute.attributes[31].name}
+              {attribute.attributes[18].name}
             </h5>
-            <p className="w-3/4 max-w-2xl">{attribute.attributes[31].value}</p>
+            <p className="w-3/4 max-w-2xl">{attribute.attributes[18].value}</p>
           </div>
         )}
       </div>
