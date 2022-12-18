@@ -46,8 +46,6 @@ const Product = ({ product }) => {
       >
         Add to cart
       </button>
-
-      {/* <Link to={`/products/${product.id}`}><Link /> */}
     </div>
   );
 };

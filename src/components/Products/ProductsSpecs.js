@@ -22,10 +22,21 @@ const ProductsSpecs = () => {
 
   return (
     <div className="bg-white">
-      <div className="sticky-default py-4 bg-gray-100">
-        <h2 className="products-specs-container text-2xl">
-          {attribute.attributes[0].value}
-        </h2>
+      <div className="sticky-default z-30 py-3 bg-gray-100 shadow-md">
+        <div className="products-specs-container flex flex-col items-center  justify-between space-y-2 sm:flex-row sm:space-y-0">
+          <h2 className="text-xl sm:text-2xl">
+            {attribute.attributes[0].value}
+          </h2>
+
+          <div className="w-full sm:w-1/3 lg:w-1/4">
+            <button
+              // onClick={() => cartCtx.addToCartHandler(product.id, 1)}
+              className="w-full py-3 text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800"
+            >
+              Add to cart
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="products-specs-container mt-7 mb-10">
