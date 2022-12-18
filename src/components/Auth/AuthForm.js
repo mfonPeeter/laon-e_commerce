@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
+import AuthContext from '../../store/auth-context';
 import laonLogo from '../../assets/laon-top-logo.png';
 import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
 
@@ -8,6 +10,10 @@ const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const authCtx = useContext(AuthContext);
 
   const {
     register,
@@ -23,40 +29,47 @@ const AuthForm = () => {
     const { email, password } = data;
 
     setIsLoading(true);
+    let url;
+    if (isLogin) {
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDOuliHGNkGaDF7oF2cPQchxui_Cu5wdUM';
+    } else {
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDOuliHGNkGaDF7oF2cPQchxui_Cu5wdUM';
+    }
 
     try {
-      if (isLogin) {
-      } else {
-        const res = await fetch(
-          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDOuliHGNkGaDF7oF2cPQchxui_Cu5wdUM',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              email,
-              password,
-              returnSecureToken: true,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
+      const res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+          returnSecureToken: true,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-        setIsLoading(false);
-        console.log(res);
+      setIsLoading(false);
 
-        if (res.ok) {
-          // ...
-        } else {
-          const data = await res.json();
-          console.log(data);
-          setErrorMessage('Authentication failed');
-          if (data && data.error && data.error.message) {
-            setErrorMessage(data.error.message);
-          }
+      if (!res.ok) {
+        const data = await res.json();
+        setErrorMessage('Authentication failed');
+        if (data && data.error && data.error.message) {
+          throw new Error(data.error.message);
         }
       }
-    } catch (error) {}
+
+      const data = await res.json();
+      authCtx.login(data.idToken);
+
+      setErrorMessage('');
+
+      navigate('/', { replace: true });
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
 
   return (
@@ -119,6 +132,7 @@ const AuthForm = () => {
             </span>
           )}
         </div>
+
         {!isLoading && (
           <button className="auth-btn py-3 w-3/4 text-lg md:w-1/2 lg:w-1/3">
             {isLogin ? 'Login' : 'Create Account'}

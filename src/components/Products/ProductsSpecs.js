@@ -23,7 +23,7 @@ const ProductsSpecs = () => {
 
   return (
     <div className="mt-3 bg-white">
-      <div className="pb-3 bg-gray-100">
+      <div className="sticky-default pb-3 bg-gray-100">
         <h2 className="products-specs-container text-2xl">
           {attribute.attributes[0].value}
         </h2>

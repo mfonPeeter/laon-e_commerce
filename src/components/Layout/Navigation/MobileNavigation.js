@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,11 +17,17 @@ import {
   xiaomiData,
 } from './NavigationImgData';
 
+import AuthContext from '../../../store/auth-context';
+
 const getWindowSize = () => {
   return window.innerWidth;
 };
 
 const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
+  const authCtx = useContext(AuthContext);
+
+  const { isLoggedIn } = authCtx;
+
   const [windowSize, setWindowSize] = useState(getWindowSize);
   const {
     showXiaomiNavSum,
@@ -55,9 +62,22 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
       >
         <div className="flex items-center justify-between mb-10 font-semibold">
           <h2 className="text-blue-700 font-bold text-4xl">Laon</h2>
-          <Link to="/auth" className="transition-colors hover:text-blue-700">
-            Login
-          </Link>
+          {!isLoggedIn && (
+            <Link
+              to="/auth"
+              className="px-4 py-2 transition-colors outline-blue-800 hover:text-blue-700"
+            >
+              Login
+            </Link>
+          )}
+          {isLoggedIn && (
+            <button
+              onClick={authCtx.logout}
+              className="px-4 py-2 rounded transition-colors outline-blue-800 hover:bg-gray-200 hover:text-blue-700"
+            >
+              Logout
+            </button>
+          )}
         </div>
         <button
           className="absolute top-4 -right-[12%] text-white md:-right-[7%]"

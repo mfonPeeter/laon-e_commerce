@@ -12,10 +12,14 @@ import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 import MenuBar from './NavigationIcons/MenuBar';
 
 import CartContext from '../../../store/cart-context';
+import AuthContext from '../../../store/auth-context';
 
 const Navigation = () => {
   const location = useLocation();
   const cartCtx = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
+
+  const { isLoggedIn } = authCtx;
 
   const {
     showXiaomiNavSum,
@@ -53,7 +57,10 @@ const Navigation = () => {
             </button>
           )}
 
-          <Link to="/home" className="text-blue-700 font-bold text-4xl">
+          <Link
+            to="/home"
+            className="text-blue-700 font-bold text-4xl outline-blue-800"
+          >
             Laon
           </Link>
         </div>
@@ -82,13 +89,26 @@ const Navigation = () => {
               All Products
             </Link>
 
-            <Link to="/auth" className="transition-colors hover:text-blue-700">
-              Login
-            </Link>
+            {!isLoggedIn && (
+              <Link
+                to="/auth"
+                className="px-4 py-2 transition-colors outline-blue-800 hover:text-blue-700"
+              >
+                Login
+              </Link>
+            )}
+            {isLoggedIn && (
+              <button
+                onClick={authCtx.logout}
+                className="px-4 py-2 rounded transition-colors outline-blue-800 hover:bg-gray-100 hover:text-blue-700"
+              >
+                Logout
+              </button>
+            )}
 
             <Link
               to="/cart"
-              className="relative flex items-center w-16 h-16 transition-colors hover:text-blue-700"
+              className="relative flex items-center w-16 h-16 transition-colors outline-blue-800 hover:text-blue-700"
             >
               <CartIcon />
               <span>Cart</span>

@@ -33,10 +33,10 @@ const Checkout = () => {
 
         setCheckoutToken(token);
       } catch (error) {
-        setRedirectMessage('Redirecting to home...');
+        setRedirectMessage('Redirecting to cart...');
         setRedirectTimeout(
           setTimeout(() => {
-            navigate('/');
+            navigate('/cart');
           }, 5000)
         );
       }

@@ -5,7 +5,6 @@ const useModal = () => {
 
   const showModalHandler = overflowY => {
     setShowModal(true);
-    console.log(overflowY);
     document.body.classList.add(overflowY);
   };
 

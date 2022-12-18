@@ -1,15 +1,19 @@
 import { useContext } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import CartItem from './CartItem';
 import CartIcon from '../Layout/Navigation/NavigationIcons/CartIcon';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
 import CartContext from '../../store/cart-context';
+import AuthContext from '../../store/auth-context';
 
 const Cart = () => {
   const cartCtx = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const { line_items: lineItems, total_items: totalItems } = cartCtx.cart;
 
@@ -54,11 +58,16 @@ const Cart = () => {
           <div className="hidden lg:block lg:mb-3 lg:border-b" />
 
           <div className="hidden font-lora px-2 lg:block lg:px-0">
-            <Link to="/checkout">
-              <button className="cart-btn py-3 w-full">
-                Proceed to checkout
-              </button>
-            </Link>
+            <button
+              onClick={() =>
+                authCtx.isLoggedIn
+                  ? navigate('/checkout')
+                  : navigate('/auth', { replace: true })
+              }
+              className="cart-btn py-3 w-full"
+            >
+              Proceed to checkout
+            </button>
           </div>
         </div>
 
