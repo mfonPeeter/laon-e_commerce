@@ -53,7 +53,12 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
           showNavModal ? 'w-10/12 opacity-100 translate-x-0' : ''
         }`}
       >
-        <h2 className="mb-10 text-blue-700 font-bold text-4xl">Laon</h2>
+        <Link
+          to="/home"
+          className="inline-block mb-10 text-blue-700 font-bold text-4xl"
+        >
+          Laon
+        </Link>
         <button
           className="absolute top-4 -right-[12%] text-white md:-right-[7%]"
           onClick={() => closeNavModalHandler('overflow-y-hidden')}
