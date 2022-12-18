@@ -5,6 +5,7 @@ import Footer from '../HomePage/Footer';
 import ProductSpecsDetails from './ProductSpecsDetails';
 import CartContext from '../../store/cart-context';
 import LoadingSpinner from '../../ui/LoadingSpinner';
+import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
 
 const ProductsSpecs = () => {
   const cartCtx = useContext(CartContext);
@@ -28,14 +29,20 @@ const ProductsSpecs = () => {
             {attribute.attributes[0].value}
           </h2>
 
-          <div className="w-full sm:w-1/3 lg:w-1/4">
-            <button
-              // onClick={() => cartCtx.addToCartHandler(product.id, 1)}
-              className="w-full py-3 text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800"
-            >
-              Add to cart
-            </button>
-          </div>
+          {cartCtx.isLoading ? (
+            <div className="sm:mr-24">
+              <SmallLoadingSpinner />
+            </div>
+          ) : (
+            <div className="w-full sm:w-1/3 lg:w-1/4">
+              <button
+                onClick={() => cartCtx.addToCartHandler(params.productId, 1)}
+                className="w-full py-3 text-white bg-blue-700 shadow-lg outline-blue-900 uppercase rounded transition hover:bg-blue-800"
+              >
+                Add to cart
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
