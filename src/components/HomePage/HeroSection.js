@@ -9,12 +9,12 @@ import img5 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10s-
 import img6 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10-pro-specs.png';
 
 const data = [
-  { id: 1, img: img1, title: 'Xiaomi 12T Pro' },
-  { id: 2, img: img2, title: 'Xiaomi 12 Pro' },
-  { id: 3, img: img3, title: 'Redmi Note 11 Pro' },
-  { id: 4, img: img4, title: 'Redmi Note 11' },
-  { id: 5, img: img5, title: 'Redmi Note 10S' },
-  { id: 6, img: img6, title: 'Redmi Note 10 Pro' },
+  { id: 'prod_DWy4oGEEOKl6Jx', img: img1, title: 'Xiaomi 12T Pro' },
+  { id: 'prod_gnZO5kYYBgw7MN', img: img2, title: 'Xiaomi 12 Pro' },
+  { id: 'prod_L1vOoZPPkPlRa8', img: img3, title: 'Redmi Note 11 Pro' },
+  { id: 'prod_4OANwROOxqovYL', img: img4, title: 'Redmi Note 11' },
+  { id: 'prod_nPEVlNGGOywa7d', img: img5, title: 'Redmi Note 10S' },
+  { id: 'prod_9BAmwJnn33weXd', img: img6, title: 'Redmi Note 10 Pro' },
 ];
 
 const HeroSection = () => {
@@ -48,21 +48,26 @@ const HeroSection = () => {
       </div>
 
       <div className="relative w-full h-full md:w-1/2">
-        {data.map((obj, index) => (
-          <div
-            key={obj.id}
-            className={`absolute opacity-0 transition-opacity duration-1000 md:top-1/2 md:-translate-y-1/2 ${
-              slideIndex === index + 1 ? 'opacity-100' : ''
-            }`}
-          >
-            <img
-              src={obj.img}
-              alt="Banners"
-              className="w-full h-full lg:w-11/12"
-            />
-            <p className="font-semibold">{obj.title}</p>
-          </div>
-        ))}
+        {data.map((obj, index) => {
+          const linkId = `/products/${obj.id}`;
+
+          return (
+            <Link
+              key={obj.id}
+              to={linkId}
+              className={`block absolute opacity-0 transition-opacity duration-1000 md:top-1/2 md:-translate-y-1/2 ${
+                slideIndex === index + 1 ? 'opacity-100' : ''
+              }`}
+            >
+              <p>{linkId}</p>
+              <img
+                src={obj.img}
+                alt="Banners"
+                className="w-full h-full lg:w-11/12"
+              />
+            </Link>
+          );
+        })}
 
         <div className="move-dot-mt flex space-x-3 justify-center mt-[400px] md:mt-[470px] lg:mt-[510px] xl:mt-[530px]">
           {data.map((obj, index) => (
