@@ -13,6 +13,7 @@ const CartProvider = props => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [cartErrorMessage, setCartErrorMessage] = useState('');
   const [disableDecreaseButton, setDisableDecreaseButton] = useState(true);
   const [disableIncreaseButton, setDisableIncreaseButton] = useState(false);
 
@@ -49,7 +50,13 @@ const CartProvider = props => {
   }, []);
 
   const fetchCart = async () => {
-    setCart(await commerce.cart.retrieve());
+    try {
+      setCart(await commerce.cart.retrieve());
+    } catch (error) {
+      setCartErrorMessage(
+        'Error: No internet connection. Please check your internet connection.'
+      );
+    }
   };
 
   const addToCartHandler = async (productId, quantity) => {
@@ -139,6 +146,7 @@ const CartProvider = props => {
   const cartContext = {
     isLoading,
     errorMessage,
+    cartErrorMessage,
     products,
     attribute,
     cart,

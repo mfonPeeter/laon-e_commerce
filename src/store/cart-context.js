@@ -3,6 +3,7 @@ import React from 'react';
 const CartContext = React.createContext({
   isLoading: false,
   errorMessage: '',
+  cartErrorMessage: '',
   products: [],
   attribute: {},
   cart: {},

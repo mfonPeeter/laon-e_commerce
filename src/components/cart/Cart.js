@@ -99,7 +99,19 @@ const Cart = () => {
     </>
   );
 
-  if (!lineItems) return <LoadingSpinner />;
+  if (cartCtx.cartErrorMessage)
+    return (
+      <p className="my-36 text-xl font-semibold text-center">
+        {cartCtx.errorMessage}
+      </p>
+    );
+
+  if (!lineItems)
+    return (
+      <div className="mb-52">
+        <LoadingSpinner />
+      </div>
+    );
 
   const {
     subtotal: { formatted_with_symbol: formattedWithSymbol },

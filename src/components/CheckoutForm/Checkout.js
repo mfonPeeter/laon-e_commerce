@@ -85,11 +85,11 @@ const Checkout = () => {
         <h5>Error: {cartCtx.errorMessage}</h5>
         <br />
         <Link
-          to="/home"
+          to="/cart"
           onClick={() => clearTimeout(redirectTimeout)}
           className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
         >
-          Back to Home
+          Back to Cart
         </Link>
       </div>
     );
