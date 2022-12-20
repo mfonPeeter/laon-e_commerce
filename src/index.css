@@ -20,7 +20,7 @@ body {
 
 /* Navigation Modal */
 .navigation-modal {
-  @apply hidden absolute z-10 items-center space-x-8 -mt-3 px-8 py-6 w-full bg-zinc-50 shadow-md transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] lg:flex xl:space-x-14 xl:px-12;
+  @apply flex items-center shadow-md transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] xl:space-x-14 xl:px-12;
 }
 
 .navigation-modal-open {
@@ -29,6 +29,37 @@ body {
 
 .navigation-modal-closed {
   @apply opacity-0 -translate-y-full;
+}
+
+/* Mobile Navigation */
+.mobile-navigation {
+  @apply fixed z-30 top-0 left-0 w-10/12 h-screen px-6 py-4 font-lora bg-slate-100 transition-all duration-700 lg:hidden;
+}
+
+.mobile-navigation-open {
+  animation: open-mobile-navigation 0.7s ease-out forwards;
+}
+
+.mobile-navigation-closed {
+  animation: close-mobile-navigation 0.7s ease-out forwards;
+}
+
+@keyframes open-mobile-navigation {
+  0% {
+    @apply opacity-0 -translate-x-full;
+  }
+  100% {
+    @apply opacity-100 translate-x-0;
+  }
+}
+
+@keyframes close-mobile-navigation {
+  0% {
+    @apply opacity-100 translate-x-0;
+  }
+  100% {
+    @apply opacity-0 -translate-x-full;
+  }
 }
 
 /* Star Products */

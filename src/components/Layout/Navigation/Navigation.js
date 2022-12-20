@@ -51,7 +51,7 @@ const Navigation = () => {
             {/* Hamburger Menu */}
             {location.pathname !== '/checkout' && (
               <button
-                className="focus:outline-none lg:hidden"
+                className="outline-blue-800 lg:hidden"
                 onClick={() => showNavModalHandler('overflow-y-hidden')}
               >
                 <MenuBar />

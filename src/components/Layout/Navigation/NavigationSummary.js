@@ -14,7 +14,10 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
         exitActive: 'navigation-modal-closed',
       }}
     >
-      <div className="navigation-modal" onMouseLeave={onCloseNavSum}>
+      <div
+        className="navigation-modal absolute z-10 space-x-8 -mt-3 px-8 py-6 w-full bg-zinc-50"
+        onMouseLeave={onCloseNavSum}
+      >
         {data.map(obj => (
           <div key={obj.id}>
             <img src={obj.img} alt={obj.title} />
