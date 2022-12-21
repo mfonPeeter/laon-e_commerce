@@ -307,12 +307,6 @@ body {
 }
 
 /* AUTH PAGE */
-/*
-#laon-top-logo {
-  filter: sepia(100%) hue-rotate(190deg) saturate(900%);
-}
-*/
-
 .auth-form-input-container {
   @apply flex flex-col items-center space-y-1 w-3/4 md:w-1/2 lg:w-1/3;
 }
