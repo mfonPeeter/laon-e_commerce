@@ -6,7 +6,7 @@ const ProductSpecsDetails = ({ heading, text }) => {
       {text && (
         <div className="flex space-x-6 mb-8 pb-8 border-b">
           <h5 className="w-1/3 text-xl font-semibold sm:text-2xl">{heading}</h5>
-          <p className="w-3/4 max-w-2xl">{text}</p>
+          <p className="w-3/4 max-w-2xl overflow-x-hidden">{text}</p>
         </div>
       )}
     </Fragment>

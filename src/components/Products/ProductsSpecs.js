@@ -29,7 +29,7 @@ const ProductsSpecs = () => {
   return (
     <div className="bg-white">
       <div className="sticky-default py-3 bg-white shadow-md">
-        <div className="products-specs-container flex flex-col items-center  justify-between space-y-2 sm:flex-row sm:space-y-0">
+        <div className="products-specs-container flex flex-col items-center justify-between space-y-2 sm:flex-row sm:space-y-0">
           <h2 className="text-xl sm:text-2xl">
             {attribute.attributes[0].value}
           </h2>
