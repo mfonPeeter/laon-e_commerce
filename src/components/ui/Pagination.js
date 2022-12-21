@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import LeftArrow from '../components/Products/ProductsIcon/ArrowIcon';
-import RightArrow from '../components/Products/ProductsIcon/ArrowIcon';
+import LeftArrow from '../../components/Products/ProductsIcon/ArrowIcon';
+import RightArrow from '../../components/Products/ProductsIcon/ArrowIcon';
 
-import CartContext from '../store/cart-context';
+import CartContext from '../../store/cart-context';
 
 const Pagination = () => {
   const cartCtx = useContext(CartContext);

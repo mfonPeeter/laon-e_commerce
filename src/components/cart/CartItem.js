@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
+import SmallLoadingSpinner from '../ui/SmallLoadingSpinner';
 import CartContext from '../../store/cart-context';
 
 const CartItem = ({ item }) => {

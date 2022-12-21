@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import Footer from '../HomePage/Footer';
 import ProductSpecsDetails from './ProductSpecsDetails';
 import CartContext from '../../store/cart-context';
-import LoadingSpinner from '../../ui/LoadingSpinner';
-import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
+import SmallLoadingSpinner from '../ui/SmallLoadingSpinner';
 
 const ProductsSpecs = () => {
   const cartCtx = useContext(CartContext);

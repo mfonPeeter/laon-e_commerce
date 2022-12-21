@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import CartItem from './CartItem';
 import CartIcon from '../Layout/Navigation/NavigationIcons/CartIcon';
-import LoadingSpinner from '../../ui/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 import CartContext from '../../store/cart-context';
 import AuthContext from '../../store/auth-context';

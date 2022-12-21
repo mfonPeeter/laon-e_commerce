@@ -6,7 +6,7 @@ import { commerce } from '../../lib/commerce';
 
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
-import LoadingSpinner from '../../ui/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 import CartContext from '../../store/cart-context';
 
@@ -36,7 +36,7 @@ const Checkout = () => {
         setRedirectMessage('Redirecting to cart...');
         setRedirectTimeout(
           setTimeout(() => {
-            navigate('/cart');
+            navigate('/cart', { replace: true });
           }, 5000)
         );
       }
