@@ -27,42 +27,38 @@ const PaymentForm = ({ checkoutToken, shippingData, backStep, nextStep }) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
 
-    if (error) {
-      console.log(error);
-    } else {
-      const orderData = {
-        line_items: lineItems,
-        customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
-          email: shippingData.email,
+    const orderData = {
+      line_items: lineItems,
+      customer: {
+        firstname: shippingData.firstName,
+        lastname: shippingData.lastName,
+        email: shippingData.email,
+      },
+      shipping: {
+        name: 'Primary',
+        street: shippingData.address,
+        town_city: shippingData.city,
+        county_state: shippingData.shippingSubdivision,
+        postal_zip_code: shippingData.zip,
+        country: shippingData.shippingCountry,
+      },
+      fulfillment: { shipping_method: shippingData.shippingOption },
+      payment: {
+        gateway: 'stripe',
+        stripe: {
+          payment_method_id: paymentMethod.id,
         },
-        shipping: {
-          name: 'Primary',
-          street: shippingData.address,
-          town_city: shippingData.city,
-          county_state: shippingData.shippingSubdivision,
-          postal_zip_code: shippingData.zip,
-          country: shippingData.shippingCountry,
-        },
-        fulfillment: { shipping_method: shippingData.shippingOption },
-        payment: {
-          gateway: 'stripe',
-          stripe: {
-            payment_method_id: paymentMethod.id,
-          },
-        },
-      };
+      },
+    };
 
-      cartCtx.captureCheckoutHandler(checkoutToken.id, orderData);
+    cartCtx.captureCheckoutHandler(checkoutToken.id, orderData);
 
-      nextStep();
-    }
+    nextStep();
   };
 
   return (

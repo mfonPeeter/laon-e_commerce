@@ -61,8 +61,8 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
         }}
       >
         <div className="mobile-navigation">
-          <Link to="/home" className="inline-block mb-10 outline-blue-800">
-            <img src={laonLogo} alt="Laon Logo" className="w-16 h-16" />
+          <Link to="/home" className="inline-block mb-8 outline-blue-800">
+            <img src={laonLogo} alt="Laon Logo" className="w-[70px] h-[70px]" />
           </Link>
           <button
             className="absolute top-4 -right-[12%] text-white md:-right-[7%]"

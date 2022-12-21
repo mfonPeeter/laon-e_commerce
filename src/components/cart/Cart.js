@@ -72,7 +72,7 @@ const Cart = () => {
         </div>
 
         <div className="sticky-default bg-white font-lora p-2 mb-4 shadow-md lg:hidden">
-          <Link to="/checkout">
+          <Link reloadDocument to="/checkout">
             <button className="cart-btn py-3 w-full">
               Proceed to checkout
             </button>
