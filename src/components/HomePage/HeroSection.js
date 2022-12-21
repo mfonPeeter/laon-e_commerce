@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12t-pro-specs.webp';
 import img2 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-pro-specs.png';
@@ -48,26 +49,26 @@ const HeroSection = () => {
       </div>
 
       <div className="relative w-full h-full md:w-1/2">
-        {data.map((obj, index) => {
-          const linkId = `/products/${obj.id}`;
-
-          return (
-            <Link
-              key={obj.id}
-              to={linkId}
-              className={`block absolute opacity-0 transition-opacity duration-1000 md:top-1/2 md:-translate-y-1/2 ${
-                slideIndex === index + 1 ? 'opacity-100' : ''
-              }`}
-            >
-              <p>{linkId}</p>
-              <img
-                src={obj.img}
-                alt="Banners"
-                className="w-full h-full lg:w-11/12"
-              />
-            </Link>
-          );
-        })}
+        {data.map((obj, index) => (
+          <CSSTransition
+            key={obj.id}
+            mountOnEnter
+            unmountOnExit
+            in={slideIndex === index + 1}
+            timeout={1000}
+            classNames="hero-slide"
+          >
+            <div className="hero-slide">
+              <Link to={`/products/${obj.id}`}>
+                <img
+                  src={obj.img}
+                  alt="Banners"
+                  className="w-full h-full lg:w-11/12"
+                />
+              </Link>
+            </div>
+          </CSSTransition>
+        ))}
 
         <div className="move-dot-mt flex space-x-3 justify-center mt-[400px] md:mt-[470px] lg:mt-[510px] xl:mt-[530px]">
           {data.map((obj, index) => (

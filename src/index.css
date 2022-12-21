@@ -62,6 +62,27 @@ body {
   }
 }
 
+/* Hero Section */
+.hero-slide {
+  @apply absolute md:top-1/2 md:-translate-y-1/2;
+}
+
+.hero-slide-enter {
+  @apply opacity-0;
+}
+
+.hero-slide-enter-active {
+  @apply opacity-100 transition-opacity duration-1000;
+}
+
+.hero-slide-exit {
+  @apply opacity-0;
+}
+
+.hero-slide-exit-active {
+  @apply opacity-0 transition-opacity duration-1000;
+}
+
 /* Star Products */
 .star-products-link,
 .small-banner-link {
