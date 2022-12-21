@@ -65,15 +65,17 @@ const Checkout = () => {
         <hr />
         <p className="mt-4">Order ref: {cartCtx.order.customer_reference}</p>
         <br />
-        <div className="flex items-center justify-between">
-          <Link
-            reloadDocument
-            to="/cart"
-            onClick={() => clearTimeout(redirectTimeout)}
-            className="px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
-          >
-            Back to Cart
-          </Link>
+        <div className="flex flex-col justify-between space-y-2 sm:flex-row sm:items-center sm:space-y-0">
+          <div>
+            <Link
+              reloadDocument
+              to="/cart"
+              onClick={() => clearTimeout(redirectTimeout)}
+              className="inline-block px-4 py-2 uppercase border rounded transition-colors outline-blue-900 hover:bg-gray-100"
+            >
+              Back to Cart
+            </Link>
+          </div>
           <p>{redirectMessage}</p>
         </div>
       </div>
@@ -110,7 +112,7 @@ const Checkout = () => {
     );
 
   return (
-    <div className="container mx-auto max-w-2xl my-16 mb-20 px-4 font-lora">
+    <div className="container mx-auto max-w-2xl mt-12 mb-20 px-4 font-lora">
       <div className="bg-white py-6 rounded shadow-md">
         <h2 className="text-4xl text-center mb-4">Checkout</h2>
         <div className="flex justify-between mb-8">
