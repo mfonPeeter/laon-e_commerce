@@ -30,7 +30,7 @@ const Product = ({ product }) => {
           <span className="inline-block mb-2 p-1 text-sm text-white bg-[#276076] rounded-sm">
             Official Store
           </span>
-          <h5 className="leading-tight">{product.name}</h5>
+          <h5 className="leading-tight line-clamp-1">{product.name}</h5>
           <h5
             className="mb-2 leading-tight line-clamp-2"
             dangerouslySetInnerHTML={{ __html: product.description }}
