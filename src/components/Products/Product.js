@@ -32,7 +32,7 @@ const Product = ({ product }) => {
           </span>
           <h5 className="leading-tight">{product.name}</h5>
           <h5
-            className="h-12 mb-2 leading-tight sm:h-14 xl:h-9"
+            className="mb-2 leading-tight line-clamp-2"
             dangerouslySetInnerHTML={{ __html: product.description }}
           />
           <h5 className="mb-4 text-xl font-sans font-bold">
