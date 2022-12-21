@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../../store/auth-context';
-import laonLogo from '../../assets/laon-top-logo.png';
+import laonLogo from '../../assets/laon-logo.png';
 import SmallLoadingSpinner from '../../ui/SmallLoadingSpinner';
 
 const AuthForm = () => {
@@ -78,15 +78,7 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="container mx-auto my-20">
-      <div className="flex justify-center mb-4">
-        <img
-          src={laonLogo}
-          alt="Laon Top Logo"
-          id="laon-top-logo"
-          className="w-16"
-        />
-      </div>
+    <div className="container mx-auto my-24">
       <h3 className="mb-6 text-center text-2xl font-semibold">
         {isLogin ? 'Login' : 'Sign Up'}
       </h3>
@@ -146,7 +138,7 @@ const AuthForm = () => {
         {isLoading && <SmallLoadingSpinner />}
       </form>
 
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-6">
         <button
           onClick={switchAuthModeHandler}
           className="p-1 text-lg transition-colors outline-blue-800 hover:text-blue-800"
@@ -156,13 +148,7 @@ const AuthForm = () => {
       </div>
 
       <div className="flex items-center justify-center cursor-default">
-        <h3 className="text-blue-700 font-bold text-2xl">Laon</h3>
-        <img
-          src={laonLogo}
-          alt="Laon Top Logo"
-          id="laon-top-logo"
-          className="w-5 h-5"
-        />
+        <img src={laonLogo} alt="Laon Logo" className="w-16 h-16" />
       </div>
     </div>
   );

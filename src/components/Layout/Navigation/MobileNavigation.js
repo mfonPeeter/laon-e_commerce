@@ -16,6 +16,7 @@ import {
   tabletSmartDeviceData,
   xiaomiData,
 } from './NavigationImgData';
+import laonLogo from '../../../assets/laon-logo.png';
 
 const getWindowSize = () => {
   return window.innerWidth;
@@ -60,11 +61,8 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
         }}
       >
         <div className="mobile-navigation">
-          <Link
-            to="/home"
-            className="inline-block mb-10 text-blue-700 font-bold text-4xl"
-          >
-            Laon
+          <Link to="/home" className="inline-block mb-10 outline-blue-800">
+            <img src={laonLogo} alt="Laon Logo" className="w-16 h-16" />
           </Link>
           <button
             className="absolute top-4 -right-[12%] text-white md:-right-[7%]"

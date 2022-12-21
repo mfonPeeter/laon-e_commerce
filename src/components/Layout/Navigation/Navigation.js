@@ -10,6 +10,7 @@ import CartIcon from './NavigationIcons/CartIcon';
 import MobileNavigation from './MobileNavigation';
 import { xiaomiData, redmiData, smartDeviceData } from './NavigationImgData';
 import MenuBar from './NavigationIcons/MenuBar';
+import laonLogo from '../../../assets/laon-logo.png';
 
 import CartContext from '../../../store/cart-context';
 import AuthContext from '../../../store/auth-context';
@@ -58,11 +59,12 @@ const Navigation = () => {
               </button>
             )}
 
-            <Link
-              to="/home"
-              className="text-blue-700 font-bold text-4xl outline-blue-800"
-            >
-              Laon
+            <Link to="/home" className="inline-block outline-blue-800">
+              <img
+                src={laonLogo}
+                alt="Laon Logo"
+                className="w-[70px] h-[70px]"
+              />
             </Link>
           </div>
 

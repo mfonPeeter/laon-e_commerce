@@ -15,7 +15,7 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
       }}
     >
       <div
-        className="navigation-modal hidden absolute z-40 space-x-8 -mt-3 px-8 py-6 w-full bg-zinc-50 lg:flex"
+        className="navigation-modal hidden absolute z-40 space-x-8 px-8 py-6 w-full bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] lg:flex"
         onMouseLeave={onCloseNavSum}
       >
         {data.map(obj => (
