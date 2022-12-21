@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../../store/auth-context';
 import laonLogo from '../../assets/laon-logo.png';
-import SmallLoadingSpinner from '../ui/SmallLoadingSpinner';
+import SmallLoadingSpinner from '../UI/SmallLoadingSpinner';
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import SkeletonProduct from '../../skeletons/SkeletonProduct';
-import SmallLoadingSpinner from '../ui/SmallLoadingSpinner';
+import SmallLoadingSpinner from '../UI/SmallLoadingSpinner';
 import Product from './Product';
 
 import CartContext from '../../store/cart-context';

@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import ProductsSpecs from './components/Products/ProductsSpecs';
-import LoadingSpinner from './components/ui/LoadingSpinner';
+import LoadingSpinner from './components/UI/LoadingSpinner';
 
 import CartProvider from './store/CartProvider';
 import AuthContext from './store/auth-context';

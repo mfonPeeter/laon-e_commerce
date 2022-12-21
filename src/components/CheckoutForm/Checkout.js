@@ -6,7 +6,7 @@ import { commerce } from '../../lib/commerce';
 
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 import CartContext from '../../store/cart-context';
 
