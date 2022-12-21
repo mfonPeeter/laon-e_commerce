@@ -78,7 +78,7 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="container mx-auto my-24">
+    <div className="container mx-auto my-28">
       <h3 className="mb-6 text-center text-2xl font-semibold">
         {isLogin ? 'Login' : 'Sign Up'}
       </h3>

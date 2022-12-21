@@ -44,9 +44,15 @@ const CartProvider = props => {
   }, [pageNo, page]);
 
   const retrieveProductsHandler = useCallback(async productId => {
-    const products = await commerce.products.retrieve(productId);
+    try {
+      const products = await commerce.products.retrieve(productId);
 
-    setAttribute(products);
+      setAttribute(products);
+    } catch (error) {
+      setErrorMessage(
+        'Error: No internet connection. Please check your internet connection.'
+      );
+    }
   }, []);
 
   const fetchCart = async () => {

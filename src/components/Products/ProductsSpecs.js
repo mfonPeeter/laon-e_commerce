@@ -12,12 +12,17 @@ const ProductsSpecs = () => {
 
   const params = useParams();
 
-  const { attribute, retrieveProductsHandler } = cartCtx;
+  const { attribute, retrieveProductsHandler, errorMessage } = cartCtx;
 
   // Call the function when page is refreshed
   useEffect(() => {
     retrieveProductsHandler(params.productId);
   }, [retrieveProductsHandler, params.productId]);
+
+  if (errorMessage)
+    return (
+      <p className="my-36 text-xl font-semibold text-center">{errorMessage}</p>
+    );
 
   if (Object.keys(attribute).length === 0) return <LoadingSpinner />;
 
