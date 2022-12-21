@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
   } = item;
 
   return (
-    <div className="p-2 mb-2 bg-white rounded">
+    <div className="p-2 mb-2 bg-white rounded lg:px-6">
       <div className="flex space-x-1 mb-2 md:space-x-4">
         <div className="w-1/3 sm:w-1/5 md:w-1/6">
           <img src={item.image.url} alt={item.name} className="w-full " />

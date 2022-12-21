@@ -91,7 +91,7 @@ const Cart = () => {
       <div className="mb-6 px-2 md:px-0">
         <button
           onClick={cartCtx.emptyCartHandler}
-          className="cart-btn w-full p-2 sm:w-52"
+          className="cart-btn w-full px-2 py-3 sm:w-52"
         >
           Empty cart
         </button>
@@ -118,7 +118,7 @@ const Cart = () => {
   } = cartCtx.cart;
 
   return (
-    <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-8">
+    <div className="container mx-auto max-w-3xl mt-3 lg:max-w-7xl lg:px-16">
       {lineItems && (
         <h2 className="px-2 mb-4 text-xl text-gray-700 font-lora font-bold md:px-0 md:text-2xl">
           Shopping Cart
