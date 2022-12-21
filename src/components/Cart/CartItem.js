@@ -54,8 +54,8 @@ const CartItem = ({ item }) => {
                 : 'bg-blue-700 outline-blue-900 hover:bg-blue-800 shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)]'
             }  `}
           >
-            <span className="flex items-end justify-center w-full h-full">
-              -
+            <span className="flex items-center justify-center w-full h-full sm:items-end">
+              &minus;
             </span>
           </button>
           {cartCtx.isLoading ? (
@@ -67,10 +67,10 @@ const CartItem = ({ item }) => {
             onClick={() =>
               cartCtx.updateCartQtyHandler(item.id, item.quantity + 1)
             }
-            className=" w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800"
+            className="w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors flex outline-blue-900 hover:bg-blue-800"
           >
-            <span className="flex items-end justify-center w-full h-full">
-              +
+            <span className="flex items-center justify-center w-full h-full sm:items-end">
+              &#43;
             </span>
           </button>
         </div>
