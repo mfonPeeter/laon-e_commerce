@@ -20,7 +20,7 @@ body {
 
 /* Navigation Modal */
 .navigation-modal {
-  @apply flex items-center shadow-md transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] xl:space-x-14 xl:px-12;
+  @apply items-center shadow-md transition-all duration-[600ms] ease-[cubic-bezier(0.5,1,0.89,1)] xl:space-x-14 xl:px-12;
 }
 
 .navigation-modal-open {

@@ -20,13 +20,15 @@ const MobileNavigationSummary = ({
       }}
     >
       <div
-        className="navigation-modal space-x-2 py-2 px-2"
+        className="navigation-modal flex space-x-2 py-2 px-2"
         onMouseLeave={onCloseNavSum}
       >
         {data.map(obj => (
           <div key={obj.id}>
-            <img src={obj.img} alt={obj.title} />
-            <p className="font-lora text-base text-center">{obj.title}</p>
+            <Link reloadDocument to={`/products/${obj.id}`}>
+              <img src={obj.img} alt={obj.title} />
+              <p className="font-lora text-base text-center">{obj.title}</p>
+            </Link>
           </div>
         ))}
         <Link

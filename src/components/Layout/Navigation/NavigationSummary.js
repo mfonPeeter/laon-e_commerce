@@ -15,13 +15,15 @@ const NavigationSummary = ({ data, showNavSum, onCloseNavSum }) => {
       }}
     >
       <div
-        className="navigation-modal absolute z-10 space-x-8 -mt-3 px-8 py-6 w-full bg-zinc-50"
+        className="navigation-modal hidden absolute z-40 space-x-8 -mt-3 px-8 py-6 w-full bg-zinc-50 lg:flex"
         onMouseLeave={onCloseNavSum}
       >
         {data.map(obj => (
           <div key={obj.id}>
-            <img src={obj.img} alt={obj.title} />
-            <p className="font-lora text-base text-center">{obj.title}</p>
+            <Link reloadDocument to={`/products/${obj.id}`}>
+              <img src={obj.img} alt={obj.title} />
+              <p className="font-lora text-base text-center">{obj.title}</p>
+            </Link>
           </div>
         ))}
         <Link

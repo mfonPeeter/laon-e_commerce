@@ -20,55 +20,55 @@ import img14 from '../../../assets/nav-products/smart-device/mi-smart-band-5.png
 
 // Desktop View
 export const xiaomiData = [
-  { id: 1, img: img1, title: 'Xiaomi 12 Pro' },
-  { id: 2, img: img2, title: 'Mi 10T' },
-  { id: 3, img: img3, title: 'Mi 10 Lite' },
-  { id: 4, img: img4, title: 'Mi Note 10 Pro' },
+  { id: 'prod_gnZO5kYYBgw7MN', img: img1, title: 'Xiaomi 12 Pro' },
+  { id: 'prod_r2LM5QQQdr5ZV1', img: img2, title: 'Mi 10T' },
+  { id: 'prod_VPvL5zjjeN5AQk', img: img3, title: 'Mi Note 10 Lite' },
+  { id: 'prod_BkyN5YDDROo0b6', img: img4, title: 'Mi Note 10 Pro' },
 ];
 
 export const redmiData = [
-  { id: 1, img: img5, title: 'Redmi Note 11 Pro+ 5g' },
-  { id: 2, img: img6, title: 'Remdi Note 11 Pro' },
-  { id: 3, img: img7, title: 'Redmi Note 11S' },
-  { id: 4, img: img8, title: 'Redmi Note 11' },
-  { id: 5, img: img9, title: 'Redmi 10' },
+  { id: 'prod_NXELwjYYNel3A4', img: img5, title: 'Redmi Note 11 Pro+ 5g' },
+  { id: 'prod_L1vOoZPPkPlRa8', img: img6, title: 'Remdi Note 11 Pro' },
+  { id: 'prod_kd6Ll2mmy35V2m', img: img7, title: 'Redmi Note 11S' },
+  { id: 'prod_4OANwROOxqovYL', img: img8, title: 'Redmi Note 11' },
+  { id: 'prod_yA6nldggv75EWb', img: img9, title: 'Redmi 10' },
 ];
 
 export const smartDeviceData = [
-  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
-  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
-  { id: 3, img: img12, title: 'Redmi Buds 3' },
-  { id: 4, img: img13, title: 'Mi Watch' },
-  { id: 5, img: img14, title: 'Mi Smart Band 5' },
+  { id: 'prod_kpnNwAxx0NlmXB', img: img10, title: 'Redmi Watch 2 Lite' },
+  { id: 'prod_8XO3wpeeRNoYAz', img: img11, title: 'Redmi Buds 3 Pro' },
+  { id: 'prod_bO6J5aMMdP5Ejp', img: img12, title: 'Redmi Buds 3' },
+  { id: 'prod_A12Jwr99RdlPjn', img: img13, title: 'Mi Watch' },
+  { id: 'prod_Op1YoVDDbWlXLv', img: img14, title: 'Mi Smart Band 5' },
 ];
 
 // Mobile View
 export const mobileXiaomiData = [
-  { id: 1, img: img1, title: 'Xiaomi 12 Pro' },
-  { id: 2, img: img2, title: 'Mi 10T' },
+  { id: 'prod_gnZO5kYYBgw7MN', img: img1, title: 'Xiaomi 12 Pro' },
+  { id: 'prod_r2LM5QQQdr5ZV1', img: img2, title: 'Mi 10T' },
 ];
 
 export const mobileRedmiData = [
-  { id: 1, img: img3, title: 'Redmi Note 11 Pro+ 5g' },
-  { id: 2, img: img4, title: 'Remdi Note 11 Pro' },
+  { id: 'prod_NXELwjYYNel3A4', img: img3, title: 'Redmi Note 11 Pro+ 5g' },
+  { id: 'prod_L1vOoZPPkPlRa8', img: img4, title: 'Remdi Note 11 Pro' },
 ];
 
 export const mobileSmartDeviceData = [
-  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
-  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
+  { id: 'prod_kpnNwAxx0NlmXB', img: img10, title: 'Redmi Watch 2 Lite' },
+  { id: 'prod_8XO3wpeeRNoYAz', img: img11, title: 'Redmi Buds 3 Pro' },
 ];
 
 // Tablet View
 export const tabletRedmiData = [
-  { id: 1, img: img5, title: 'Redmi Note 11 Pro+ 5g' },
-  { id: 2, img: img6, title: 'Remdi Note 11 Pro' },
-  { id: 3, img: img7, title: 'Redmi Note 11S' },
-  { id: 4, img: img8, title: 'Redmi Note 11' },
+  { id: 'prod_NXELwjYYNel3A4', img: img5, title: 'Redmi Note 11 Pro+ 5g' },
+  { id: 'prod_L1vOoZPPkPlRa8', img: img6, title: 'Remdi Note 11 Pro' },
+  { id: 'prod_kd6Ll2mmy35V2m', img: img7, title: 'Redmi Note 11S' },
+  { id: 'prod_4OANwROOxqovYL', img: img8, title: 'Redmi Note 11' },
 ];
 
 export const tabletSmartDeviceData = [
-  { id: 1, img: img10, title: 'Redmi Watch 2 Lite' },
-  { id: 2, img: img11, title: 'Redmi Buds 3 Pro' },
-  { id: 3, img: img12, title: 'Redmi Buds 3' },
-  { id: 4, img: img13, title: 'Mi Watch' },
+  { id: 'prod_kpnNwAxx0NlmXB', img: img10, title: 'Redmi Watch 2 Lite' },
+  { id: 'prod_8XO3wpeeRNoYAz', img: img11, title: 'Redmi Buds 3 Pro' },
+  { id: 'prod_bO6J5aMMdP5Ejp', img: img12, title: 'Redmi Buds 3' },
+  { id: 'prod_A12Jwr99RdlPjn', img: img13, title: 'Mi Watch' },
 ];
