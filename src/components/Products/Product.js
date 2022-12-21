@@ -11,6 +11,7 @@ const Product = ({ product }) => {
   return (
     <div className="group px-2 pb-2 bg-white rounded font-serif transition-shadow hover:shadow-2xl">
       <Link
+        reloadDocument
         to={`/products/${product.id}`}
         onClick={() => {
           cartCtx.retrieveProductsHandler(product.id);

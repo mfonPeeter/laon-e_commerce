@@ -8,6 +8,7 @@ const SmallBanner = () => {
   return (
     <section className="homepage-container grid gap-y-3 mb-12 font-lora sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-3">
       <Link
+        reloadDocument
         to="/products/prod_NXELwjYYNel3A4"
         className="small-banner-link px-10 py-6 bg-slate-200"
       >
@@ -17,6 +18,7 @@ const SmallBanner = () => {
         </div>
       </Link>
       <Link
+        reloadDocument
         to="/products/prod_mOVKl466yLoprR"
         className="small-banner-link px-10 py-6 bg-zinc-200"
       >
@@ -26,6 +28,7 @@ const SmallBanner = () => {
         </div>
       </Link>
       <Link
+        reloadDocument
         to="/products/prod_N7GKwbzzvXw3EX"
         className="small-banner-link px-10 py-6 bg-slate-200"
       >

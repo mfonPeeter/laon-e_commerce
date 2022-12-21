@@ -59,7 +59,7 @@ const HeroSection = () => {
             classNames="hero-slide"
           >
             <div className="hero-slide">
-              <Link to={`/products/${obj.id}`}>
+              <Link reloadDocument to={`/products/${obj.id}`}>
                 <img
                   src={obj.img}
                   alt="Banners"

@@ -15,6 +15,7 @@ const StarProducts = () => {
 
       <div className="grid gap-y-3 grid-flow-row auto-rows-fr sm:grid-cols-2 sm:gap-x-3 lg:grid-cols-4 lg:gap-1 lg:auto-rows-auto">
         <Link
+          reloadDocument
           to="/products/prod_A12Jwr99RdlPjn"
           className="star-products-link p-4 bg-zinc-200 lg:row-span-2 lg:col-span-2"
         >
@@ -24,6 +25,7 @@ const StarProducts = () => {
           </div>
         </Link>
         <Link
+          reloadDocument
           to="/products/prod_8XO3wpeeRNoYAz"
           className="star-products-link p-4 bg-slate-200 "
         >
@@ -36,6 +38,7 @@ const StarProducts = () => {
           </div>
         </Link>
         <Link
+          reloadDocument
           to="/products/prod_kpnNwAxx0NlmXB"
           className="star-products-link p-4 bg-slate-200 "
         >
@@ -45,6 +48,7 @@ const StarProducts = () => {
           </div>
         </Link>
         <Link
+          reloadDocument
           to="/products/prod_Op1YoVDDbWlXLv"
           className="star-products-link p-4 bg-zinc-200 lg:col-span-2"
         >
