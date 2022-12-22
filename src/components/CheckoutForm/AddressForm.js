@@ -104,8 +104,6 @@ const AddressForm = ({ checkoutToken, next }) => {
                 placeholder="First name"
                 registeredText="firstName"
                 required="Enter your firstname"
-                value={/^[A-Za-z]+$/}
-                message="Name should not contain numbers"
               />
               {errors.firstName && (
                 <span className="text-red-500 text-sm">
@@ -118,8 +116,6 @@ const AddressForm = ({ checkoutToken, next }) => {
                 placeholder="Last name"
                 registeredText="lastName"
                 required="Enter your lastname"
-                value={/^[A-Za-z]+$/}
-                message="Name should not contain numbers"
               />
               {errors.lastName && (
                 <span className="text-red-500 text-sm">
@@ -131,7 +127,7 @@ const AddressForm = ({ checkoutToken, next }) => {
               <FormInput
                 placeholder="Address"
                 registeredText="address"
-                required="Enter your email address"
+                required="Enter your address"
               />
               {errors.address && (
                 <span className="text-red-500 text-sm">
@@ -158,8 +154,6 @@ const AddressForm = ({ checkoutToken, next }) => {
                 placeholder="City"
                 registeredText="city"
                 required="Enter your city"
-                value={/^[A-Za-z]+$/}
-                message="City should not contain numbers"
               />
               {errors.city && (
                 <span className="text-red-500 text-sm">
@@ -172,8 +166,6 @@ const AddressForm = ({ checkoutToken, next }) => {
                 placeholder="ZIP/Postal Code"
                 registeredText="zip"
                 required="Enter your zip/postal code"
-                value={/^[0-9]+$/}
-                message="Zip/Postal code should not contain letters"
               />
               {errors.zip && (
                 <span className="text-red-500 text-sm">
