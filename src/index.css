@@ -106,6 +106,42 @@ body {
 
 /* Media Queries */
 /* Move Dot */
+@media (min-width: 300px) {
+  .move-dot-mt {
+    @apply mt-60;
+  }
+}
+
+@media (min-width: 330px) {
+  .move-dot-mt {
+    @apply mt-72;
+  }
+}
+
+@media (min-width: 380px) {
+  .move-dot-mt {
+    @apply mt-80;
+  }
+}
+
+@media (min-width: 425px) {
+  .move-dot-mt {
+    @apply mt-[350px];
+  }
+}
+
+@media (min-width: 445px) {
+  .move-dot-mt {
+    @apply mt-[370px];
+  }
+}
+
+@media (min-width: 475px) {
+  .move-dot-mt {
+    @apply mt-96;
+  }
+}
+
 @media (min-width: 518px) {
   .move-dot-mt {
     @apply mt-[420px];

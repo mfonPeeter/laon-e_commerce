@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CSSTransition from 'react-transition-group/CSSTransition';
 
-import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12t-pro-specs.webp';
-import img2 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-pro-specs.png';
+import img1 from '../../assets/products-specs/mi-phones-specs/xiaomi-12-pro-specs.png';
+import img2 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-pro-5g-specs.png';
 import img3 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-pro-specs.png';
-import img4 from '../../assets/products-specs/redmi-phones-specs/redmi-note-11-specs.png';
+import img4 from '../../assets/products-specs/redmi-phones-specs/redmi-note-9-pro-specs.png';
 import img5 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10s-specs.png';
 import img6 from '../../assets/products-specs/redmi-phones-specs/redmi-note-10-pro-specs.png';
 
 const data = [
-  { id: 'prod_DWy4oGEEOKl6Jx', img: img1, title: 'Xiaomi 12T Pro' },
-  { id: 'prod_gnZO5kYYBgw7MN', img: img2, title: 'Xiaomi 12 Pro' },
+  { id: 'prod_gnZO5kYYBgw7MN', img: img1, title: 'Xiaomi 12 Pro' },
+  { id: 'prod_NXELwjYYNel3A4', img: img2, title: 'Redmi Note 11 Pro+ 5g' },
   { id: 'prod_L1vOoZPPkPlRa8', img: img3, title: 'Redmi Note 11 Pro' },
-  { id: 'prod_4OANwROOxqovYL', img: img4, title: 'Redmi Note 11' },
+  { id: 'prod_N7GKwbzzvXw3EX', img: img4, title: 'Redmi Note 9 Pro' },
   { id: 'prod_nPEVlNGGOywa7d', img: img5, title: 'Redmi Note 10S' },
   { id: 'prod_9BAmwJnn33weXd', img: img6, title: 'Redmi Note 10 Pro' },
 ];
@@ -63,7 +63,7 @@ const HeroSection = () => {
                 <img
                   src={obj.img}
                   alt="Banners"
-                  className="w-full h-full lg:w-11/12"
+                  className="w-full h-full  lg:w-11/12"
                 />
               </Link>
             </div>
