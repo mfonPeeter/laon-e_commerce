@@ -42,7 +42,7 @@ const Navigation = () => {
   return (
     <Fragment>
       <div
-        className={`px-6 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] ${
+        className={`px-3 py-2 bg-gradient-to-r from-[#ECD8EF] via-[#FFFFFF] to-[#F5F4F7] ${
           location.pathname === '/checkout' && 'sticky-default'
         }`}
       >
