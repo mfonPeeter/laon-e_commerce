@@ -45,7 +45,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
   return (
     <Fragment>
       <div
-        className={`fixed z-30 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-500 transition-all -translate-x-full lg:hidden ${
+        className={`fixed z-30 top-0 left-0 h-screen w-full bg-[rgba(0,0,0,0.4)] font-lora opacity-0 duration-700 transition-all -translate-x-full lg:hidden ${
           showNavModal ? 'opacity-100 translate-x-0' : ''
         }`}
         onClick={() => closeNavModalHandler('overflow-y-hidden')}
