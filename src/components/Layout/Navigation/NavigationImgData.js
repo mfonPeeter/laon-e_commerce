@@ -28,7 +28,7 @@ export const xiaomiData = [
 
 export const redmiData = [
   { id: 'prod_NXELwjYYNel3A4', img: img5, title: 'Redmi Note 11 Pro+ 5g' },
-  { id: 'prod_L1vOoZPPkPlRa8', img: img6, title: 'Remdi Note 11 Pro' },
+  { id: 'prod_L1vOoZPPkPlRa8', img: img6, title: 'Redmi Note 11 Pro' },
   { id: 'prod_kd6Ll2mmy35V2m', img: img7, title: 'Redmi Note 11S' },
   { id: 'prod_4OANwROOxqovYL', img: img8, title: 'Redmi Note 11' },
   { id: 'prod_yA6nldggv75EWb', img: img9, title: 'Redmi 10' },
