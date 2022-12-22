@@ -15,7 +15,7 @@ const EmbedProductVideo = ({
           className="z-10 fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.3)]"
           onClick={closeOverlayHandler}
         >
-          <div className="relative my-36 mb-4 sm:my-8">
+          <div className="relative my-40 mb-4 sm:my-8">
             <h4 className="text-lg text-center text-white font-lora font-semibold uppercase">
               {title}
             </h4>

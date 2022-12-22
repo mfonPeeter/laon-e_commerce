@@ -29,7 +29,7 @@ const Videos = () => {
   } = useModal();
 
   return (
-    <section className="homepage-container mb-12">
+    <section className="homepage-container mb-12 font-lora">
       <h2 className="mb-6 text-gray-700 text-2xl text-center font-semibold uppercase md:text-3xl">
         Videos
       </h2>
