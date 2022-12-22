@@ -15,13 +15,14 @@ const MobileNavigationSummary = ({
       in={showNavSum}
       timeout={350}
       classNames={{
+        enter: 'opacity-0',
         enterActive: 'navigation-modal-open',
         exitActive: 'navigation-modal-closed',
       }}
     >
       <div
         className="navigation-modal flex space-x-2 py-2 px-2"
-        onMouseLeave={onCloseNavSum}
+        onClick={onCloseNavSum}
       >
         {data.map(obj => (
           <div key={obj.id}>

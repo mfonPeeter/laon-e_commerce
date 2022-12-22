@@ -6,7 +6,7 @@ import useNavigation from '../../../hooks/use-navigation';
 
 import NavCloseIcon from './NavigationIcons/NavCloseIcon';
 
-import NavigationList from './NavigationList';
+import MobileNavigationList from './MobileNavigationList';
 import MobileNavigationSummary from './MobileNavigationSummary';
 import {
   mobileRedmiData,
@@ -73,7 +73,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
 
           <ul className="flex flex-col space-y-12 text-xl text-gray-800 font-semibold">
             <div>
-              <NavigationList
+              <MobileNavigationList
                 text="Xiaomi Phones"
                 onOpenNavSum={openXiaomiNavSumHandler}
               />
@@ -100,7 +100,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
             </div>
 
             <div>
-              <NavigationList
+              <MobileNavigationList
                 text="Redmi Phones"
                 onOpenNavSum={openRedmiNavSumHandler}
               />
@@ -127,7 +127,7 @@ const MobileNavigation = ({ showNavModal, closeNavModalHandler }) => {
             </div>
 
             <div>
-              <NavigationList
+              <MobileNavigationList
                 text="Smart Device"
                 onOpenNavSum={openSmartDeviceNavSumHandler}
               />
