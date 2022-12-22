@@ -55,7 +55,7 @@ const HeroSection = () => {
             mountOnEnter
             unmountOnExit
             in={slideIndex === index + 1}
-            timeout={1000}
+            timeout={1500}
             classNames="hero-slide"
           >
             <div className="hero-slide">

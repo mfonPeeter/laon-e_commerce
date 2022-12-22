@@ -72,7 +72,7 @@ body {
 }
 
 .hero-slide-enter-active {
-  @apply opacity-100 transition-opacity duration-1000;
+  @apply opacity-100 transition-opacity duration-[1500ms];
 }
 
 .hero-slide-exit {
@@ -80,7 +80,7 @@ body {
 }
 
 .hero-slide-exit-active {
-  @apply opacity-0 transition-opacity duration-1000;
+  @apply opacity-0 transition-opacity duration-[1500ms];
 }
 
 /* Star Products */
