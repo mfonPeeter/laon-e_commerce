@@ -12,8 +12,6 @@ const CartItem = ({ item }) => {
     product_id: productId,
   } = item;
 
-  console.log(item);
-
   return (
     <div className="p-2 mb-2 bg-white rounded lg:px-6">
       <Link reloadDocument to={`/products/${productId}`}>
@@ -54,15 +52,13 @@ const CartItem = ({ item }) => {
             onClick={() =>
               cartCtx.updateCartQtyHandler(item.id, item.quantity - 1)
             }
-            className={`w-8 h-8 text-white text-4xl rounded transition-colors ${
+            className={`flex items-center justify-center w-8 h-8 text-white text-4xl rounded transition-colors sm:items-end ${
               item.quantity === 1
                 ? 'bg-blue-300 pointer-events-none'
                 : 'bg-blue-700 outline-blue-900 hover:bg-blue-800 shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)]'
             }  `}
           >
-            <span className="flex items-center justify-center w-full h-full sm:items-end">
-              &minus;
-            </span>
+            &minus;
           </button>
           {cartCtx.isLoading ? (
             <SmallLoadingSpinner />
@@ -73,11 +69,9 @@ const CartItem = ({ item }) => {
             onClick={() =>
               cartCtx.updateCartQtyHandler(item.id, item.quantity + 1)
             }
-            className="w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800"
+            className="flex items-center justify-center w-8 h-8 bg-blue-700 text-white text-3xl rounded shadow-[1px_4px_8px_0.5px_rgba(0,0,0,0.3)] transition-colors outline-blue-900 hover:bg-blue-800 sm:items-end"
           >
-            <span className="flex items-center justify-center w-full h-full sm:items-end">
-              &#43;
-            </span>
+            &#43;
           </button>
         </div>
       </div>
