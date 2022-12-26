@@ -24,8 +24,7 @@ function App() {
       <Layout>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/products/*" element={<ProductsPage />} />
             <Route path="/products/:productId" element={<ProductsSpecs />} />
             <Route path="/cart" element={<CartPage />} />

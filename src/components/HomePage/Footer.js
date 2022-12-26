@@ -26,21 +26,33 @@ const ContactUs = () => {
             <p>We want to hear from you!</p>
           </div>
           <div className="flex space-x-4">
-            <a href="https://www.linkedin.com/in/mfonpeeter/">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.linkedin.com/in/mfonpeeter/"
+            >
               <img
                 src={linkedIn}
                 alt="LinkedIn Logo"
                 className="w-8 h-8 bg-white rounded-full transition-all ficon"
               />
             </a>
-            <a href="https://github.com/mfonPeeter">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/mfonPeeter"
+            >
               <img
                 src={github}
                 alt="GitHub Logo"
                 className="w-8 h-8 bg-white rounded-full transition-all ficon"
               />
             </a>
-            <a href="https://twitter.com/mfonPeeter">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://twitter.com/mfonPeeter"
+            >
               <img
                 src={twitter}
                 alt="Twitter Logo"
@@ -55,6 +67,8 @@ const ContactUs = () => {
         Copyright &copy; 2022 Laon. Most of the products and designs came from
         <span>
           <a
+            rel="noreferrer"
+            target="_blank"
             href="https://www.mi.com/ng/"
             className="mx-1 transition-all hover:border-b"
           >
