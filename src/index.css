@@ -166,24 +166,6 @@ body {
   }
 }
 
-@media (min-width: 665px) {
-  .move-dot-mt {
-    @apply mt-[570px];
-  }
-}
-
-@media (min-width: 710px) {
-  .move-dot-mt {
-    @apply mt-[610px];
-  }
-}
-
-@media (min-width: 760px) {
-  .move-dot-mt {
-    @apply mt-[630px];
-  }
-}
-
 @media (min-width: 1024px) {
   body {
     overflow-y: visible !important;
